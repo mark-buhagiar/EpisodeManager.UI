@@ -1,0 +1,37 @@
+@import "../../variables.scss";
+
+.nav-bar {
+    line-height: 4em;
+    background-color: $primary-color;
+    margin-bottom: $distance-covid-safe;
+
+    #navContainer {
+        display: flex;
+        flex-flow: row nowrap;
+
+        *:visited,
+        *:link,
+        *:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-link {
+            background-color: $accent-color;
+            padding: 0 $distance-covid-safe;
+        }
+
+        .app-title {
+            font-weight: bold;
+            padding: 0 $distance-covid-safe 0 0;
+        }
+
+        .active-nav-link {
+            background-color: $background-color;
+        }
+
+        .spacer {
+            flex-grow: 2;
+        }
+    }
+}

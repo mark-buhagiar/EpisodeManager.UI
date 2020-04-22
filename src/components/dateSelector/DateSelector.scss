@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+#dateSelector {
+    font-size: 36px;
+    display: flex;
+    flex-flow: row;
+    height: 3em;
+    justify-content: center;
+    align-items: center;
+
+    .month-label {
+        text-align: center;
+        margin: 0 $distance-covid-warning;
+    }
+
+    .year {
+        font-size: 10px;
+    }
+}
