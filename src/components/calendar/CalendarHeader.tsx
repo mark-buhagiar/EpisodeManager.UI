@@ -13,13 +13,11 @@ const CalendarHeader: React.FC = (): JSX.Element => {
     ];
 
     return (
-        <>
-            <div className="calendar-headers">
-                {headers.map((header) => (
-                    <CalendarHeaderItem key={header.label} {...header} />
-                ))}
-            </div>
-        </>
+        <div className="calendar-header">
+            {headers.map((header) => (
+                <CalendarHeaderItem key={header.label} {...header} />
+            ))}
+        </div>
     );
 };
 

@@ -1,17 +1,68 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-.calendar-headers {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
+$flex-basis-for-7-column: 13.5%;
 
-    .calendar-header-item {
-        flex: 1 1 auto;
-        margin: 0 2px;
-        border-radius: 10px 10px 0 0;
-        background-color: $accent-color;
-        line-height: 1.5em;
-        text-align: center;
-        font-weight: bold;
+.calendar {
+    .calendar-header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+
+        .calendar-header-item {
+            flex: 1 1 $flex-basis-for-7-column;
+            padding-right: 10px;
+            line-height: 1.5em;
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+
+    .calendar-body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    .calendar-body-item {
+        flex: 1 1 $flex-basis-for-7-column;
+        min-height: 100px;
+        border: lighten($background-color, 10%) 1px solid;
+        border-left: none;
+        border-bottom: none;
+        display: flex;
+        flex-flow: column;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: 12px;
+
+        &:nth-of-type(7n + 1) {
+            border-left: lighten($background-color, 10%) 1px solid;
+        }
+
+        &:nth-last-of-type(-n + 7) {
+            border-bottom: lighten($background-color, 10%) 1px solid;
+        }
+
+        &.date-today {
+            color: lighten($text-color, 100%);
+            background-color: rgba($highlight-color, 0.3);
+        }
+
+        .date-label {
+            align-self: flex-end;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            .day-label {
+                margin-left: 5px;
+
+                &.date-today {
+                    background-color: $highlight-color;
+                    border-radius: 50%;
+                    padding: 5px;
+                }
+            }
+        }
     }
 }
