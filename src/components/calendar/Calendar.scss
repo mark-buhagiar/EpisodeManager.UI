@@ -1,0 +1,17 @@
+@import "../../variables.scss";
+
+.calendar-headers {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+    .calendar-header-item {
+        flex: 1 1 auto;
+        margin: 0 2px;
+        border-radius: 10px 10px 0 0;
+        background-color: $accent-color;
+        line-height: 1.5em;
+        text-align: center;
+        font-weight: bold;
+    }
+}

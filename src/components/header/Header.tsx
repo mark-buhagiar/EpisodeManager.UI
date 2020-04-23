@@ -18,7 +18,7 @@ const Header: React.FC = (): JSX.Element => {
     const generateNavLink = (link: NavLinkObj): JSX.Element => <NavLink key={link.to} {...link}></NavLink>;
 
     return (
-        <nav className="nav-bar">
+        <nav className="nav-bar no-select">
             <div id="navContainer" className="app-container">
                 <span className="app-title">Episode Manager</span>
                 {navLinksLeft.map(generateNavLink)}

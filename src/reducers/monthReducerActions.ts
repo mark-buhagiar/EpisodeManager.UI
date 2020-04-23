@@ -1,8 +1,8 @@
-export enum MonthReducerActions {
+export enum MonthReducerActionTypes {
     INCREMENT_MONTH = 1,
     DECREMENT_MONTH = 2,
 }
 
 export type MonthReducerAction =
-    | { type: MonthReducerActions.DECREMENT_MONTH }
-    | { type: MonthReducerActions.INCREMENT_MONTH };
+    | { type: MonthReducerActionTypes.INCREMENT_MONTH }
+    | { type: MonthReducerActionTypes.DECREMENT_MONTH };

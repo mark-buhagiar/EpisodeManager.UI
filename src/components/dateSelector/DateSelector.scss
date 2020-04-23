@@ -9,8 +9,13 @@
     align-items: center;
 
     .month-label {
+        min-width: 10em;
         text-align: center;
-        margin: 0 $distance-covid-warning;
+        margin: 0 $distance-covid-safe;
+    }
+
+    .date-changer {
+        cursor: pointer;
     }
 
     .year {

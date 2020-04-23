@@ -1,6 +1,7 @@
 import Moment from 'moment';
 import React, { Dispatch } from 'react';
-import { MonthReducerAction } from '../../reducers/monthReducerActions';
+import { MonthReducerAction, MonthReducerActionTypes } from '../../reducers/monthReducerActions';
+import DateChanger from './DateChanger';
 import './DateSelector.scss';
 
 interface Props {
@@ -13,17 +14,21 @@ const DateSelector: React.FC<Props> = ({ date, updateDateDispatch }): JSX.Elemen
     const month = momentDate.format('MMMM');
     const year = momentDate.format('YYYY');
 
+    const changeMonth = (type: MonthReducerActionTypes): void => updateDateDispatch({ type });
     return (
         <div id="dateSelector">
-            <div id="decrementMonth">
-                <span className="material-icons">navigate_before</span>
-            </div>
+            <DateChanger
+                id="navigate_before"
+                onClick={(): void => changeMonth(MonthReducerActionTypes.DECREMENT_MONTH)}
+            />
             <div className="month-label">
                 {month} <br /> <div className="year">{year}</div>
             </div>
-            <div id="incrementMonth">
-                <span className="material-icons">navigate_next</span>
-            </div>
+
+            <DateChanger
+                id="navigate_next"
+                onClick={(): void => changeMonth(MonthReducerActionTypes.INCREMENT_MONTH)}
+            />
         </div>
     );
 };
