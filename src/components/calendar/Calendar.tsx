@@ -17,7 +17,6 @@ const Calendar: React.FC<Props> = (props: Props): JSX.Element => {
 
     useEffect(() => {
         const anchorDate = moment(props.date);
-
         const calendarStart = moment(anchorDate).startOf('month');
         calendarStart.subtract('day', calendarStart.day() === 0 ? 6 : calendarStart.day() - 1);
 
