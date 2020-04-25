@@ -1,13 +1,11 @@
 import React from 'react';
-import useIsToday from '../../hooks/useIsToday';
 
 interface Props {
+    isToday: boolean;
     date: Date;
 }
 
-const CalendarDateLabel: React.FC<Props> = ({ date }): JSX.Element => {
-    const isToday = useIsToday(date);
-
+const CalendarDateLabel: React.FC<Props> = ({ date, isToday }): JSX.Element => {
     const monthNames = [
         'January',
         'February',

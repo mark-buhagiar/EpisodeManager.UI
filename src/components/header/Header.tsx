@@ -1,21 +1,34 @@
 import React from 'react';
+import { useAuth0 } from '../../helpers/reactAuth0Spa';
+import { Route, RouteLabel } from '../../models/enums/Routes';
 import NavLinkObj from '../../models/NavLink';
 import './Header.scss';
 import NavLink from './NavLink';
-import { Routes, RouteLabels } from '../../models/enums/Routes';
 
 const Header: React.FC = (): JSX.Element => {
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
     const navLinksLeft = [
-        { to: Routes.HOMEPAGE, exact: true, label: RouteLabels.HOMEPAGE },
-        { to: Routes.MANAGE_SHOWS, label: RouteLabels.MANAGE_SHOWS },
-        { to: Routes.SHOWS, label: RouteLabels.SHOWS },
-        { to: Routes.HELP, label: RouteLabels.HELP },
-        { to: Routes.ADMIN, label: RouteLabels.ADMIN },
+        { id: 1, to: Route.HOMEPAGE, exact: true, label: RouteLabel.HOMEPAGE },
+        { id: 2, to: Route.MANAGE_SHOWS, label: RouteLabel.MANAGE_SHOWS },
+        { id: 3, to: Route.SHOWS, label: RouteLabel.SHOWS },
+        { id: 4, to: Route.HELP, label: RouteLabel.HELP },
+        { id: 5, to: Route.ADMIN, label: RouteLabel.ADMIN },
     ] as NavLinkObj[];
 
-    const navLinksRight = [{ to: Routes.PROFILE, label: RouteLabels.PROFILE }] as NavLinkObj[];
+    const navLinksRight = [
+        { id: 6, to: Route.PROFILE, label: RouteLabel.PROFILE, visible: isAuthenticated },
+        { id: 7, label: RouteLabel.LOG_OUT, visible: isAuthenticated, action: logout },
+        { id: 8, label: RouteLabel.LOG_IN, visible: !isAuthenticated, action: loginWithRedirect },
+    ] as NavLinkObj[];
 
-    const generateNavLink = (link: NavLinkObj): JSX.Element => <NavLink key={link.to} {...link}></NavLink>;
+    const generateNavLink = (link: NavLinkObj): JSX.Element => {
+        return link.visible ? (
+            <NavLink key={link.id} {...link}></NavLink>
+        ) : (
+            <React.Fragment key={link.id}></React.Fragment>
+        );
+    };
 
     return (
         <nav className="nav-bar no-select">

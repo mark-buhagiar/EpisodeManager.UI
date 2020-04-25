@@ -4,7 +4,7 @@ export function getDatesInRange(start: Moment, end: Moment): Date[] {
     let currentDate = moment(start);
     while (currentDate.isBefore(end)) {
         dateArray.push(currentDate.toDate());
-        currentDate = currentDate.add('day', 1);
+        currentDate = currentDate.add(1, 'day');
     }
     return dateArray;
 }

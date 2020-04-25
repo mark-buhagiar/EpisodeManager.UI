@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { withAuth } from '../../HoC/withAuth';
+import withAuthHeaderInterceptor from '../../HoC/withAuthHeaderInterceptor';
 import Header from '../header/Header';
 import Routes from '../routes';
 import './App.scss';
@@ -7,14 +8,12 @@ import './App.scss';
 const App = (): JSX.Element => {
     return (
         <div className="App">
-            <Router>
-                <Header />
-                <div className="app-container">
-                    <Routes />
-                </div>
-            </Router>
+            <Header />
+            <div className="app-container">
+                <Routes />
+            </div>
         </div>
     );
 };
 
-export default App;
+export default withAuth(withAuthHeaderInterceptor(App));

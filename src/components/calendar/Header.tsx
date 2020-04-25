@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarHeaderItem from './CalendarHeaderItem';
+import CalendarHeaderItem from './HeaderItem';
 
 const CalendarHeader: React.FC = (): JSX.Element => {
     const headers = [

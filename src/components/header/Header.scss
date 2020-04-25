@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .nav-bar {
     line-height: 4em;
@@ -17,6 +17,7 @@
         }
 
         .nav-link {
+            cursor: pointer;
             background-color: $accent-color;
             padding: 0 $distance-covid-safe;
         }

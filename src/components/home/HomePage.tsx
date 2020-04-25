@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import DateSelector from '../dateSelector/DateSelector';
 import monthReducer from '../../reducers/monthReducer';
-import Calendar from '../calendar/Calendar';
+import Calendar from '../calendar';
 
 const HomePage: React.FC = (): JSX.Element => {
     const [date, updateDateDispatch] = useReducer(monthReducer, new Date());
