@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+$footer-height: 10em;
+
+.footer {
+    margin-top: ($footer-height/2);
+    background-color: $accent-color;
+    height: $footer-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

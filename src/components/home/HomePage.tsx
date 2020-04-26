@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react';
-import DateSelector from '../dateSelector/DateSelector';
+import { withEpisodesSelectedContext } from '../../HoC/withEpisodesSelectedContext';
 import monthReducer from '../../reducers/monthReducer';
 import Calendar from '../calendar';
+import DateSelector from '../dateSelector/DateSelector';
 import Actions from './Actions';
-import { withEpisodesSelectedContext } from '../../HoC/withEpisodesSelectedContext';
+import './HomePage.scss';
 
 const HomePage: React.FC = (): JSX.Element => {
     const [date, updateDateDispatch] = useReducer(monthReducer, new Date());
@@ -13,7 +14,7 @@ const HomePage: React.FC = (): JSX.Element => {
         <div>
             <DateSelector {...props} />
             <Calendar date={date} />
-            <Actions />
+            <Actions className="homepage-actions" />
         </div>
     );
 };

@@ -62,7 +62,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
 
     return (
         <div className={`episode ${episode.downloaded ? 'downloaded' : ''}`}>
-            <input className="checkbox" type="checkbox" onClick={toggleEpisodeSelected} value={isSelected.toString()} />
+            <input className="checkbox" type="checkbox" onChange={toggleEpisodeSelected} checked={isSelected} />
 
             <div className="details">
                 <span title={episode.show} className="show-name">
