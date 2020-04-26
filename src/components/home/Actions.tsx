@@ -1,6 +1,7 @@
 import React from 'react';
-import ActionButton from './ActionButton';
+import { useEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
 import { useEpisodesSelectedListener } from '../../HoC/withEpisodesSelectedContext';
+import ActionButton from './ActionButton';
 import './Button.scss';
 
 interface Props {
@@ -9,17 +10,18 @@ interface Props {
 
 const Actions: React.FC<Props> = ({ className }): JSX.Element => {
     const episodesSelected = useEpisodesSelectedListener();
+    const { dispatchDownload, dispatchMarkDownloaded } = useEpisodeActionContext();
 
     const component = (): JSX.Element => {
         return episodesSelected > 0 ? (
             <div className={`button-group ${className}`}>
                 <ActionButton
-                    dispatch={(null as unknown) as React.Dispatch<any>}
+                    dispatch={dispatchDownload}
                     enabled={episodesSelected > 0}
                     label="Download"
                 ></ActionButton>
                 <ActionButton
-                    dispatch={(null as unknown) as React.Dispatch<any>}
+                    dispatch={dispatchMarkDownloaded}
                     enabled={episodesSelected > 0}
                     label="Mark Watched"
                 ></ActionButton>

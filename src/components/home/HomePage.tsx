@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { withEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
 import { withEpisodesSelectedContext } from '../../HoC/withEpisodesSelectedContext';
 import monthReducer from '../../reducers/monthReducer';
 import Calendar from '../calendar';
@@ -19,4 +20,4 @@ const HomePage: React.FC = (): JSX.Element => {
     );
 };
 
-export default withEpisodesSelectedContext(HomePage);
+export default withEpisodesSelectedContext(withEpisodeActionContext(HomePage));

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Episode from '../../models/Episode';
 import { Quality, QualityDescriptions } from '../../models/enums/Qualities';
 import { useEpisodesSelectedDispatcher } from '../../HoC/withEpisodesSelectedContext';
 import { EpisodeSelectedActionTypes } from '../../reducers/episodeSelectedReducerActions';
+import { useEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
 
 const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
     const episodeSelectedDispatcher = useEpisodesSelectedDispatcher();
+    const { downloadState, markDownloadedSate } = useEpisodeActionContext();
     const [isSelected, setIsSelected] = useState<boolean>(false);
+    const [isDownloaded, setIsDownloaded] = useState<boolean>(episode.downloaded);
 
     const toggleEpisodeSelected = (): void => {
         if (isSelected) {
@@ -18,6 +21,30 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
         }
         setIsSelected(!isSelected);
     };
+
+    const markEpisodeDownloaded = (): void => {
+        console.log('Downloaded');
+        setIsDownloaded(true);
+    };
+
+    const downloadEpisode = (): void => {
+        window.open(episode.link, '_blank');
+        markEpisodeDownloaded();
+    };
+
+    useEffect(() => {
+        if (isSelected && downloadState.length > 0) {
+            downloadEpisode();
+            toggleEpisodeSelected();
+        }
+    }, [downloadState]);
+
+    useEffect(() => {
+        if (isSelected && markDownloadedSate.length > 0) {
+            if (!isDownloaded) markEpisodeDownloaded();
+            toggleEpisodeSelected();
+        }
+    }, [markDownloadedSate]);
 
     const airDetails = (): string => {
         if (!!episode.airDate) return `(${episode.airDate})`;
@@ -61,11 +88,11 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
         );
 
     return (
-        <div className={`episode ${episode.downloaded ? 'downloaded' : ''}`}>
+        <div className={`episode ${isDownloaded ? 'downloaded' : ''}`}>
             <input className="checkbox" type="checkbox" onChange={toggleEpisodeSelected} checked={isSelected} />
 
             <div className="details">
-                <span title={episode.show} className="show-name">
+                <span title={episode.show} className="show-name" onClick={downloadEpisode}>
                     {episode.show}
                 </span>
                 <span className="file-details">

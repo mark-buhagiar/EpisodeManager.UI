@@ -71,7 +71,6 @@ $flex-basis-for-7-column: 13.5%;
             display: flex;
             flex-flow: row;
             align-items: center;
-            cursor: pointer;
 
             &.downloaded {
                 text-decoration: line-through;
@@ -88,6 +87,7 @@ $flex-basis-for-7-column: 13.5%;
                 overflow: hidden;
 
                 .show-name {
+                    cursor: pointer;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
