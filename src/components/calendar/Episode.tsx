@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Episode from '../../models/Episode';
 import { Quality, QualityDescriptions } from '../../models/enums/Qualities';
+import { useEpisodesSelectedDispatcher } from '../../HoC/withEpisodesSelectedContext';
+import { EpisodeSelectedActionTypes } from '../../reducers/episodeSelectedReducerActions';
 
 const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
+    const episodeSelectedDispatcher = useEpisodesSelectedDispatcher();
+    const [isSelected, setIsSelected] = useState<boolean>(false);
+
+    const toggleEpisodeSelected = (): void => {
+        if (isSelected) {
+            // We are going to DESELECT it
+            episodeSelectedDispatcher({ type: EpisodeSelectedActionTypes.DESELECTED });
+        } else {
+            // We are going to SELECT it
+            episodeSelectedDispatcher({ type: EpisodeSelectedActionTypes.SELECTED });
+        }
+        setIsSelected(!isSelected);
+    };
+
     const airDetails = (): string => {
         if (!!episode.airDate) return `(${episode.airDate})`;
         if (!!episode.season && !!episode.number) return `(${episode.season}x${episode.number})`;
@@ -46,7 +62,8 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
 
     return (
         <div className={`episode ${episode.downloaded ? 'downloaded' : ''}`}>
-            <input className="checkbox" type="checkbox"></input>
+            <input className="checkbox" type="checkbox" onClick={toggleEpisodeSelected} value={isSelected.toString()} />
+
             <div className="details">
                 <span title={episode.show} className="show-name">
                     {episode.show}
