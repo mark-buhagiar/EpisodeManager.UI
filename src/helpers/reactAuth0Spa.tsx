@@ -10,7 +10,7 @@ interface Auth0ContextWrapper {
     user: any;
     loading: boolean;
     popupOpen: boolean;
-    loginWithPopup: (params: any) => Promise<void>;
+    loginWithPopup: (params?: any) => Promise<void>;
     handleRedirectCallback: () => Promise<void>;
     getIdTokenClaims: (...args: any[]) => Promise<IdToken>;
     loginWithRedirect: (...args: any[]) => Promise<void>;
@@ -62,6 +62,7 @@ export const Auth0Provider = ({
     }, []);
 
     const loginWithPopup = async (params = {}): Promise<void> => {
+        debugger;
         setPopupOpen(true);
         try {
             await auth0Client.loginWithPopup(params);

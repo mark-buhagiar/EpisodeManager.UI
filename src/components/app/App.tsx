@@ -8,7 +8,7 @@ import './App.scss';
 
 const App = (): JSX.Element => {
     return (
-        <div className="App">
+        <div className="app">
             <Header />
             <div className="app-container">
                 <Routes />

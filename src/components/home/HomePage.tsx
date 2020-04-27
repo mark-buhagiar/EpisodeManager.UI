@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import withAuthenticationRequired from '../../HoC/withAuthenticationRequired';
 import { withEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
 import { withEpisodesSelectedContext } from '../../HoC/withEpisodesSelectedContext';
 import monthReducer from '../../reducers/monthReducer';
@@ -20,4 +21,4 @@ const HomePage: React.FC = (): JSX.Element => {
     );
 };
 
-export default withEpisodesSelectedContext(withEpisodeActionContext(HomePage));
+export default withAuthenticationRequired(withEpisodesSelectedContext(withEpisodeActionContext(HomePage)));

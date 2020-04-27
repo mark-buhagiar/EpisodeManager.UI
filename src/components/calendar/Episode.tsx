@@ -37,6 +37,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
             downloadEpisode();
             toggleEpisodeSelected();
         }
+        // eslint-disable-next-line
     }, [downloadState]);
 
     useEffect(() => {
@@ -44,6 +45,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
             if (!isDownloaded) markEpisodeDownloaded();
             toggleEpisodeSelected();
         }
+        // eslint-disable-next-line
     }, [markDownloadedSate]);
 
     const airDetails = (): string => {

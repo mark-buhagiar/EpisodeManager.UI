@@ -7,7 +7,11 @@ const Footer: React.FC = (): JSX.Element => {
     return (
         <div className="footer">
             <a href="https://www.linkedin.com/in/buhagiar-mark/" target="blank">
-                From Mark with ♥️ - {year()}
+                From Mark with{' '}
+                <span role="img" aria-label="heart">
+                    ♥️
+                </span>{' '}
+                - {year()}
             </a>
         </div>
     );
