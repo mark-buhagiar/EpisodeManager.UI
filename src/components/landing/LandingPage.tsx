@@ -16,7 +16,8 @@ const LandingPage: React.FC = (): JSX.Element => {
             <div className="site-name">
                 Episode
                 <br />
-                Manager <span className="version-number">v2.0</span>
+                Manager
+                <span className="version-number">v2.0</span>
             </div>
             <ButtonGroup className="button-group" buttons={buttons} />
             <div className="sub-text">

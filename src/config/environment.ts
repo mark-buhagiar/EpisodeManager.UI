@@ -1,6 +1,6 @@
 const EnvironmentConfig = {
-    isMocking: false,
-    isAuthenticated: false,
+    isMocking: true,
+    isAuthenticated: true,
 };
 
 export default EnvironmentConfig;

@@ -10,7 +10,6 @@ const withAuthenticationRequired = <P extends object>(
     const loggingIn = <div> logging in</div>;
     const loggedOut = <Redirect to="/landing" />;
     const loggedIn = <WrappedComponent {...props} />;
-
     return isAuthenticated ? loggedIn : loading ? loggingIn : loggedOut;
 };
 
