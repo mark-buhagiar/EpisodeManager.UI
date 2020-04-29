@@ -35,12 +35,24 @@ server.use(function (req, res, next) {
     setTimeout(next, 0);
 });
 
-server.get('*/getForCurrentUserBetweenDates', function (req, res, next) {
+server.get('*/GetForCurrentUserBetweenDates', function (req, res, next) {
     res.redirect('/episodes') 
 });
 
 server.put('*/AddEpisodeDownloaded', function (req, res, next) {
-    next();
+    res.status(200).send();
+});
+
+server.get('*/GetUserSubscriptionsForListing', function (req, res, next) {
+    res.redirect('/users/1/subscriptions')
+});
+
+server.get('*/GetAllForListing', function (req, res, next) {
+    res.redirect('/shows')
+});
+
+server.patch('/subscriptions/UnsubscribeFromShow', function (req, res, next) {
+    res.status(200).send();
 });
 
 // Use default router

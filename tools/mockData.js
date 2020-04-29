@@ -1,3 +1,45 @@
+const users = [
+    {
+        id: 1,
+    },
+];
+
+const subscriptions = [
+    {
+        id: 1,
+        userId: 1,
+        title: 'Rookie',
+    },
+    {
+        id: 2,
+        userId: 1,
+        title: 'Psych',
+    },
+];
+
+const shows = [
+    {
+        id: 1,
+        title: 'Rookie',
+    },
+    {
+        id: 2,
+        title: 'Psych',
+    },
+    {
+        id: 3,
+        title: 'Monk',
+    },
+    {
+        id: 4,
+        title: 'Chuck',
+    },
+    {
+        id: 675,
+        title: 'Outlander',
+    },
+];
+
 const episodes = [
     {
         id: 419,
@@ -171,4 +213,7 @@ const episodes = [
 
 module.exports = {
     episodes,
+    users,
+    subscriptions,
+    shows,
 };
