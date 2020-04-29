@@ -1,8 +1,7 @@
 import createAuth0Client, { Auth0Client, IdToken } from '@auth0/auth0-spa-js';
 import React, { useContext, useEffect, useState } from 'react';
-import EnvironmentConfig from '../config/environment';
-import { resolve } from 'dns';
 import AuthConfig from '../config/authConfig';
+import EnvironmentConfig from '../config/environmentConfig';
 
 // Modified by Mark
 const DEFAULT_REDIRECT_CALLBACK = (): void => window.history.replaceState({}, document.title, window.location.pathname);
@@ -39,24 +38,28 @@ export const Auth0Provider = ({
         if (EnvironmentConfig.isMocking) return;
 
         const initAuth0 = async (): Promise<void> => {
-            const auth0FromHook = await createAuth0Client(initOptions);
-            setAuth0(auth0FromHook);
+            try {
+                const auth0FromHook = await createAuth0Client(initOptions);
+                setAuth0(auth0FromHook);
 
-            if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
-                const { appState } = await auth0FromHook.handleRedirectCallback();
-                onRedirectCallback(appState);
+                if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
+                    const { appState } = await auth0FromHook.handleRedirectCallback();
+                    onRedirectCallback(appState);
+                }
+
+                const isAuthenticated = await auth0FromHook.isAuthenticated();
+
+                setIsAuthenticated(isAuthenticated);
+
+                if (isAuthenticated) {
+                    const user = await auth0FromHook.getUser();
+                    setUser(user);
+                }
+            } catch (ex) {
+                console.log(ex);
+            } finally {
+                setLoading(false);
             }
-
-            const isAuthenticated = await auth0FromHook.isAuthenticated();
-
-            setIsAuthenticated(isAuthenticated);
-
-            if (isAuthenticated) {
-                const user = await auth0FromHook.getUser();
-                setUser(user);
-            }
-
-            setLoading(false);
         };
         initAuth0();
         // We only want this to run once, so an empty deps array is desired
@@ -64,7 +67,6 @@ export const Auth0Provider = ({
     }, []);
 
     const loginWithPopup = async (params = {}): Promise<void> => {
-        debugger;
         setPopupOpen(true);
         try {
             await auth0Client.loginWithPopup(params);

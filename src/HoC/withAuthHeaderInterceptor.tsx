@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import EnvironmentConfig from '../config/environment';
+import EnvironmentConfig from '../config/environmentConfig';
 import { useAuth0 } from '../helpers/reactAuth0Spa';
 
 const withAuthHeaderInterceptor = <P extends object>(

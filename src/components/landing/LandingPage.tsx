@@ -13,7 +13,7 @@ const LandingPage: React.FC = (): JSX.Element => {
 
     const landingPage = (
         <div className="landing-page">
-            <div className="site-name">
+            <div className="title site-name">
                 Episode
                 <br />
                 Manager

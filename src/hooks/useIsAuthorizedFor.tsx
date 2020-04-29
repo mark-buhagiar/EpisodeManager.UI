@@ -26,7 +26,7 @@ const useIsAuthorizedFor = (...requiredPermissions: string[]): authorizationChec
 
         if (!isAuthenticated) setLoading(false);
         else processIdToken();
-    }, [isAuthenticated, getIdTokenClaims]);
+    }, [isAuthenticated, getIdTokenClaims, requiredPermissions]);
 
     return { isAuthorized, loading };
 };

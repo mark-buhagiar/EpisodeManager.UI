@@ -1,6 +1,5 @@
 export enum Route {
     HOMEPAGE = '/',
-    MANAGE_SHOWS = '/manage',
     SHOWS = '/shows',
     HELP = '/help',
     ADMIN = '/admin',
@@ -9,7 +8,6 @@ export enum Route {
 
 export enum RouteLabel {
     HOMEPAGE = 'Calendar',
-    MANAGE_SHOWS = 'Manage Shows',
     SHOWS = 'Shows',
     HELP = 'Help',
     ADMIN = 'Admin',

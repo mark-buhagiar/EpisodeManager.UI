@@ -4,6 +4,7 @@ import { Quality, QualityDescriptions } from '../../models/enums/Qualities';
 import { useEpisodesSelectedDispatcher } from '../../HoC/withEpisodesSelectedContext';
 import { EpisodeSelectedActionTypes } from '../../reducers/episodeSelectedReducerActions';
 import { useEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
+import { addEpisodeDownloaded } from '../../api/usersApi';
 
 const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
     const episodeSelectedDispatcher = useEpisodesSelectedDispatcher();
@@ -23,12 +24,13 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
     };
 
     const markEpisodeDownloaded = (): void => {
-        console.log('Downloaded');
+        addEpisodeDownloaded(episode.id);
         setIsDownloaded(true);
     };
 
     const downloadEpisode = (): void => {
-        window.open(episode.link, '_blank');
+        //window.open(episode.link, '_blank');
+        setIsDownloaded(true);
         markEpisodeDownloaded();
     };
 

@@ -1,15 +1,8 @@
 import axios from 'axios';
 import Episode from '../models/Episode';
-import EnvironmentConfig from '../config/environment';
+import ApiConfig from '../config/apiConfig';
 
-let baseShowsMsUrl: string;
-if (EnvironmentConfig.isMocking) {
-    baseShowsMsUrl = 'http://localhost:3001/';
-} else {
-    baseShowsMsUrl = 'https://localhost:6001/api/v1/';
-}
-
-const buildEndpoint = (endpoint: string): string => baseShowsMsUrl + endpoint;
+const buildEndpoint = (endpoint: string): string => ApiConfig.showsApiBase + endpoint;
 
 const showsMSEndpoints = {
     getForCurrentUserBetweenDates: buildEndpoint('episodes/getForCurrentUserBetweenDates'),

@@ -39,6 +39,10 @@ server.get('*/getForCurrentUserBetweenDates', function (req, res, next) {
     res.redirect('/episodes') 
 });
 
+server.put('*/AddEpisodeDownloaded', function (req, res, next) {
+    next();
+});
+
 // Use default router
 server.use(router);
 
