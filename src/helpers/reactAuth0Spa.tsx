@@ -1,6 +1,8 @@
 import createAuth0Client, { Auth0Client, IdToken } from '@auth0/auth0-spa-js';
 import React, { useContext, useEffect, useState } from 'react';
 import EnvironmentConfig from '../config/environment';
+import { resolve } from 'dns';
+import AuthConfig from '../config/authConfig';
 
 // Modified by Mark
 const DEFAULT_REDIRECT_CALLBACK = (): void => window.history.replaceState({}, document.title, window.location.pathname);
@@ -110,6 +112,11 @@ export const Auth0Provider = ({
             value={
                 {
                     isAuthenticated: EnvironmentConfig.isAuthenticated,
+                    loading: EnvironmentConfig.loading,
+                    getIdTokenClaims: (): Promise<IdToken> =>
+                        new Promise((resolve) =>
+                            resolve({ [AuthConfig.permissionsClaim]: EnvironmentConfig.permissions } as IdToken),
+                        ),
                 } as Auth0ContextWrapper
             }
         >
