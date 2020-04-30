@@ -16,7 +16,7 @@ const DateSelector: React.FC<Props> = ({ date, updateDateDispatch }): JSX.Elemen
 
     const changeMonth = (type: MonthReducerActionTypes): void => updateDateDispatch({ type });
     return (
-        <div id="dateSelector">
+        <div className="date-selector">
             <DateChanger
                 id="navigate_before"
                 onClick={(): void => changeMonth(MonthReducerActionTypes.DECREMENT_MONTH)}

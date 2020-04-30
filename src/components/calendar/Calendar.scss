@@ -102,25 +102,6 @@ $flex-basis-for-7-column: 13.5%;
                         font-size: 10px;
                     }
 
-                    .dot {
-                        height: 11px;
-                        width: 12px;
-                        border-radius: 50%;
-                        margin: 0px 3px;
-                        border: 1px solid $text-color;
-                        box-sizing: border-box;
-
-                        &.standard-def {
-                            background-color: red;
-                        }
-                        &.p720 {
-                            background-color: yellow;
-                        }
-                        &.p1080 {
-                            background-color: green;
-                        }
-                    }
-
                     .material-icons {
                         font-size: inherit;
                     }

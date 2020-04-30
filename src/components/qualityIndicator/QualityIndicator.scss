@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.quality-indicator {
+    display: inline-block;
+    height: 11px;
+    width: 12px;
+    border-radius: 50%;
+    margin: 0px 3px;
+    border: 1px solid $text-color;
+    background-color: $text-color;
+    box-sizing: border-box;
+
+    &.standard-def {
+        background-color: $quality-sd;
+    }
+    &.p720 {
+        background-color: $quality-720;
+    }
+    &.p1080 {
+        background-color: $quality-1080;
+    }
+}

@@ -5,6 +5,10 @@ $highlight-color: rgb(255, 132, 60);
 $text-color: #e2e2e2;
 $line-color: lighten($background-color, 10%);
 
+$quality-1080: green;
+$quality-720: yellow;
+$quality-sd: red;
+
 $distance-covid-safe: 1em;
 $distance-covid-warning: 2em;
 $distance-covid-danger: 3em;

@@ -1,3 +1,29 @@
-.homepage-actions {
-    margin-top: 2em;
+.homepage {
+    display: flex;
+    flex-flow: column;
+
+    .calendar-navigation {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        margin-bottom: 1em;
+
+        > * {
+            flex-basis: 33%;
+            align-self: center;
+        }
+
+        .refresh-button {
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .date-selector {
+            flex: 1 0 auto;
+        }
+    }
+
+    .homepage-actions {
+        margin-top: 2em;
+    }
 }

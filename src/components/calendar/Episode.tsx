@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Episode from '../../models/Episode';
-import { QualityId, QualityDescription } from '../../models/enums/Qualities';
+import QualityIndicator from '../qualityIndicator/QualityIndicator';
 import { useEpisodesSelectedDispatcher } from '../../HoC/withEpisodesSelectedContext';
 import { EpisodeSelectedActionTypes } from '../../reducers/episodeSelectedReducerActions';
 import { useEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
@@ -56,32 +56,6 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
         return '';
     };
 
-    const getQualityIndicator = (): string => {
-        switch (episode.quality) {
-            case QualityId.StandardDef:
-                return 'standard-def';
-            case QualityId.P720:
-                return 'p720';
-            case QualityId.P1080:
-                return 'p1080';
-            default:
-                return '';
-        }
-    };
-
-    const getQualityDescription = (): string => {
-        switch (episode.quality) {
-            case QualityId.StandardDef:
-                return QualityDescription.StandardDef;
-            case QualityId.P720:
-                return QualityDescription.P720;
-            case QualityId.P1080:
-                return QualityDescription.P1080;
-            default:
-                return '';
-        }
-    };
-
     const getRepackIcon = (): JSX.Element =>
         episode.repack ? (
             <span title="Repack" className="material-icons">
@@ -103,7 +77,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
                     <span title={episode.title} className="air-details">
                         {airDetails()}
                     </span>
-                    <span title={getQualityDescription()} className={`dot ${getQualityIndicator()}`}></span>
+                    <QualityIndicator qualityId={episode.quality} />
                     {getRepackIcon()}
                 </span>
             </div>

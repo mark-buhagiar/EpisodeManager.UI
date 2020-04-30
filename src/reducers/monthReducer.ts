@@ -12,6 +12,9 @@ const monthReducer = (state: Date, action: MonthReducerAction): Date => {
             newState.setMonth(newState.getMonth() - 1);
             return newState;
         }
+        case MonthReducerActionTypes.REFRESH: {
+            return new Date();
+        }
         default:
             return state;
     }
