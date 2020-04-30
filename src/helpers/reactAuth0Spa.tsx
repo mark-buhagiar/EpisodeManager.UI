@@ -55,8 +55,8 @@ export const Auth0Provider = ({
                     const user = await auth0FromHook.getUser();
                     setUser(user);
                 }
-            } catch (ex) {
-                console.log(ex);
+            } catch (exception) {
+                console.log(exception);
             } finally {
                 setLoading(false);
             }

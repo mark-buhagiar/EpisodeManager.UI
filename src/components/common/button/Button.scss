@@ -6,11 +6,17 @@
 
     .button {
         cursor: pointer;
+        color: $text-color;
         position: relative;
         border: 1px solid $text-color;
         background-color: $accent-color;
         padding: 1em;
         font-size: 1em;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
 
         &.disabled {
             cursor: unset;

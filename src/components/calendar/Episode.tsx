@@ -29,7 +29,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
     };
 
     const downloadEpisode = (): void => {
-        //window.open(episode.link, '_blank');
+        window.open(episode.link, '_blank');
         setIsDownloaded(true);
         markEpisodeDownloaded();
     };
