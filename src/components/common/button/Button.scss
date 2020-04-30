@@ -1,4 +1,4 @@
-@import "../../../variables.scss";
+@import '../../../variables.scss';
 
 .button-group {
     display: flex;
@@ -6,13 +6,34 @@
 
     .button {
         cursor: pointer;
+        position: relative;
         border: 1px solid $text-color;
         background-color: $accent-color;
         padding: 1em;
-        font-size: 1.5em;
+        font-size: 1em;
+
+        &.disabled {
+            cursor: unset;
+            border-color: rgba($text-color, 0.2);
+        }
 
         &:not(:last-of-type) {
             margin-right: 1em;
+        }
+
+        .disabled-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba($background-color, 0.8);
+        }
+    }
+
+    &.special-actions {
+        .button {
+            font-size: 1.5em;
         }
     }
 }

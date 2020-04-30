@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Episode from '../../models/Episode';
-import { Quality, QualityDescriptions } from '../../models/enums/Qualities';
+import { QualityId, QualityDescription } from '../../models/enums/Qualities';
 import { useEpisodesSelectedDispatcher } from '../../HoC/withEpisodesSelectedContext';
 import { EpisodeSelectedActionTypes } from '../../reducers/episodeSelectedReducerActions';
 import { useEpisodeActionContext } from '../../HoC/withEpisodeActionContext';
@@ -58,11 +58,11 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
 
     const getQualityIndicator = (): string => {
         switch (episode.quality) {
-            case Quality.StandardDef:
+            case QualityId.StandardDef:
                 return 'standard-def';
-            case Quality.P720:
+            case QualityId.P720:
                 return 'p720';
-            case Quality.P1080:
+            case QualityId.P1080:
                 return 'p1080';
             default:
                 return '';
@@ -71,12 +71,12 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
 
     const getQualityDescription = (): string => {
         switch (episode.quality) {
-            case Quality.StandardDef:
-                return QualityDescriptions.standardDef;
-            case Quality.P720:
-                return QualityDescriptions.p720;
-            case Quality.P1080:
-                return QualityDescriptions.p1080;
+            case QualityId.StandardDef:
+                return QualityDescription.StandardDef;
+            case QualityId.P720:
+                return QualityDescription.P720;
+            case QualityId.P1080:
+                return QualityDescription.P1080;
             default:
                 return '';
         }

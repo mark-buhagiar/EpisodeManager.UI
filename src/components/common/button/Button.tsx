@@ -13,7 +13,12 @@ const Button: React.FC<ButtonProps> = ({ label, enabled = true, onClick }): JSX.
     }
 
     return (
-        <div className="button" onClick={handleClick}>
+        <div
+            className={`button no-select ${enabled ? '' : 'disabled'}`}
+            title={`${enabled ? '' : 'Disabled'}`}
+            onClick={handleClick}
+        >
+            {enabled ? '' : <div className="disabled-overlay"></div>}
             {label}
         </div>
     );

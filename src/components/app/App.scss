@@ -1,5 +1,19 @@
+@import '../../variables.scss';
+
 .clickable {
     cursor: pointer;
+}
+
+.MuiPaper-root {
+    border: 1px solid $line-color;
+}
+
+.MuiChip-root {
+    background-color: $accent-color !important;
+
+    .MuiChip-label {
+        color: $text-color;
+    }
 }
 
 .app {

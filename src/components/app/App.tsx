@@ -5,16 +5,39 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Routes from '../routes';
 import './App.scss';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark',
+        primary: {
+            main: '#e2e2e2',
+        },
+        text: {
+            primary: '#e2e2e2',
+            secondary: '#e2e2e2',
+        },
+        action: {
+            active: '#e2e2e2',
+            hover: '#333333',
+        },
+        background: {
+            paper: '#2a292b',
+        },
+    },
+});
 
 const App = (): JSX.Element => {
     return (
-        <div className="app">
-            <Header />
-            <div className="app-container">
-                <Routes />
+        <ThemeProvider theme={theme}>
+            <div className="app">
+                <Header />
+                <div className="app-container">
+                    <Routes />
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </ThemeProvider>
     );
 };
 

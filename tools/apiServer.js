@@ -55,6 +55,18 @@ server.patch('/subscriptions/UnsubscribeFromShow', function (req, res, next) {
     res.status(200).send();
 });
 
+server.put('/subscriptions/SubscribeToShow', function (req, res, next) {
+    res.status(200).send();
+});
+
+server.get('/users/getUserEpisodePreferences', function (req, res, next) {
+    res.redirect('/preferences')
+});
+
+server.post('/users/setUserEpisodePreferences', function (req, res, next) {
+    res.status(200).send();
+});
+
 // Use default router
 server.use(router);
 

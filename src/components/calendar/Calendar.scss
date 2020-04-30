@@ -29,7 +29,7 @@ $flex-basis-for-7-column: 13.5%;
         flex-flow: column;
         box-sizing: border-box;
         min-height: 100px;
-        border: lighten($background-color, 10%) 1px solid;
+        border: $line-color 1px solid;
         border-left: none;
         border-bottom: none;
         font-size: 12px;
@@ -37,11 +37,11 @@ $flex-basis-for-7-column: 13.5%;
         overflow: hidden;
 
         &:nth-of-type(7n + 1) {
-            border-left: lighten($background-color, 10%) 1px solid;
+            border-left: $line-color 1px solid;
         }
 
         &:nth-last-of-type(-n + 7) {
-            border-bottom: lighten($background-color, 10%) 1px solid;
+            border-bottom: $line-color 1px solid;
         }
 
         &.date-today {

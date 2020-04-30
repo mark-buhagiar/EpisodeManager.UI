@@ -1,7 +1,7 @@
 import React from 'react';
 import './Loading.scss';
 
-const Loading: React.FC = (): JSX.Element => {
+const AppLoading: React.FC = (): JSX.Element => {
     return (
         <div className="loading-container">
             <div className="loading-indicator">
@@ -15,4 +15,4 @@ const Loading: React.FC = (): JSX.Element => {
     );
 };
 
-export default Loading;
+export default AppLoading;

@@ -3,11 +3,11 @@ import Button, { ButtonProps } from './Button';
 import './Button.scss';
 
 interface Props {
-    className: string;
+    className?: string;
     buttons: ButtonProps[];
 }
 
-const ButtonGroup: React.FC<Props> = ({ className, buttons }): JSX.Element => {
+const ButtonGroup: React.FC<Props> = ({ className = '', buttons }): JSX.Element => {
     return (
         <div className={`button-group ${className}`}>
             {buttons.map((button) => (

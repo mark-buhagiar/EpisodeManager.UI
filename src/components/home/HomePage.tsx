@@ -16,7 +16,7 @@ const HomePage: React.FC = (): JSX.Element => {
         <div>
             <DateSelector {...props} />
             <Calendar date={date} />
-            <Actions className="homepage-actions" />
+            <Actions className="homepage-actions special-actions" />
         </div>
     );
 };

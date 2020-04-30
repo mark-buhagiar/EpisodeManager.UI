@@ -9,7 +9,11 @@ interface Props {
 const Panel: React.FC<Props> = ({ children, title }): JSX.Element => {
     return (
         <div className="panel">
-            <div className="panel-title title">{title}</div>
+            <div className="panel-title">
+                {title}
+                <div className="separator"></div>
+            </div>
+
             {children}
         </div>
     );

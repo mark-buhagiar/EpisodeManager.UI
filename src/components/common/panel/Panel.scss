@@ -1,14 +1,21 @@
-@import "../../../variables.scss";
+@import '../../../variables.scss';
 
 .panel {
     display: flex;
+    position: relative;
     flex-flow: column;
-    width: 75%;
     margin: 1em 0;
 
+    .separator {
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid $line-color;
+        width: 75%;
+    }
+
     .panel-title {
+        position: relative;
         font-size: 2em;
-        border-bottom: 0.5px solid darken($text-color, 0%);
         margin-bottom: 1em;
     }
 }

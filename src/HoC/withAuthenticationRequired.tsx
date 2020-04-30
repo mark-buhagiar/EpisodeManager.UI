@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useAuth0 } from '../helpers/reactAuth0Spa';
-import LoadingIndicator from '../components/loading/Loading';
+import LoadingIndicator from '../components/loading/AppLoading';
 
 const withAuthenticationRequired = <P extends object>(
     WrappedComponent: React.ComponentType<P>,

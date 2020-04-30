@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import EnvironmentConfig from '../config/environmentConfig';
 import { useAuth0 } from '../helpers/reactAuth0Spa';
+import * as qs from 'qs';
 
 const withAuthHeaderInterceptor = <P extends object>(
     WrappedComponent: React.ComponentType<P>,
@@ -13,6 +14,10 @@ const withAuthHeaderInterceptor = <P extends object>(
         const interceptor = axios.interceptors.request.use(
             async function (config) {
                 const token = await getTokenSilently();
+
+                config.paramsSerializer = function (params: any): string {
+                    return qs.stringify(params, { arrayFormat: 'repeat' });
+                };
 
                 config.headers = {
                     ...config.headers,

@@ -17,6 +17,8 @@ const subscriptions = [
     },
 ];
 
+const preferences = { qualities: [1, 2, 3] };
+
 const shows = [
     {
         id: 1,
@@ -214,6 +216,7 @@ const episodes = [
 module.exports = {
     episodes,
     users,
+    preferences,
     subscriptions,
     shows,
 };

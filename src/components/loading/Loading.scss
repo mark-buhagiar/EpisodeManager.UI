@@ -97,3 +97,10 @@ $dimension: 35px;
     width: 185px;
     height: $dimension;
 }
+
+.component-loading {
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+}

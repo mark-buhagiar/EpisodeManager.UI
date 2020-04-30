@@ -1,4 +1,4 @@
-import { Quality } from './enums/Qualities';
+import { QualityId } from './enums/Qualities';
 
 export default interface Episode {
     id: number;
@@ -8,7 +8,7 @@ export default interface Episode {
     season?: number;
     number?: number;
     airDate?: string;
-    quality: Quality;
+    quality: QualityId;
     repack: boolean;
     link: string;
     downloaded: boolean;

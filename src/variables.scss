@@ -1,12 +1,9 @@
-// $background-color: #25274d;
-// $primary-color: #464866;
-// $text-color: #aaabb8;
-
 $background-color: #212121;
 $primary-color: #2a292b;
 $accent-color: #333333;
 $highlight-color: rgb(255, 132, 60);
 $text-color: #e2e2e2;
+$line-color: lighten($background-color, 10%);
 
 $distance-covid-safe: 1em;
 $distance-covid-warning: 2em;
