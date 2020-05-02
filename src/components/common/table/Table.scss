@@ -1,0 +1,9 @@
+.table-cell {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    &.clickable {
+        cursor: pointer;
+    }
+}

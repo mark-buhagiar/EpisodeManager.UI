@@ -1,4 +1,5 @@
 import { QualityId } from './enums/Qualities';
+import { ViewEpisode } from './ViewEpisode';
 
 export default interface Episode {
     id: number;
@@ -12,4 +13,13 @@ export default interface Episode {
     repack: boolean;
     link: string;
     downloaded: boolean;
+}
+
+export function hasSeasonAndNumber(episode: Episode | ViewEpisode): boolean {
+    return (
+        episode.season !== undefined &&
+        episode.season !== null &&
+        episode.number !== undefined &&
+        episode.number !== null
+    );
 }
