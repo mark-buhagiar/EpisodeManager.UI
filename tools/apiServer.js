@@ -36,7 +36,7 @@ server.use(function (req, res, next) {
 });
 
 server.get('*/GetForCurrentUserBetweenDates', function (req, res, next) {
-    res.redirect('/episodes') 
+    res.redirect('/episodes');
 });
 
 server.put('*/AddEpisodeDownloaded', function (req, res, next) {
@@ -44,11 +44,11 @@ server.put('*/AddEpisodeDownloaded', function (req, res, next) {
 });
 
 server.get('*/GetUserSubscriptionsForListing', function (req, res, next) {
-    res.redirect('/users/1/subscriptions')
+    res.redirect('/users/1/subscriptions');
 });
 
 server.get('*/GetAllForListing', function (req, res, next) {
-    res.redirect('/shows')
+    res.redirect('/shows');
 });
 
 server.patch('/subscriptions/UnsubscribeFromShow', function (req, res, next) {
@@ -60,11 +60,15 @@ server.put('/subscriptions/SubscribeToShow', function (req, res, next) {
 });
 
 server.get('/users/getUserEpisodePreferences', function (req, res, next) {
-    res.redirect('/preferences')
+    res.redirect('/preferences');
 });
 
 server.post('/users/setUserEpisodePreferences', function (req, res, next) {
     res.status(200).send();
+});
+
+server.get('/episodes/GetForShow', function (req, res, next) {
+    res.redirect('/episodes');
 });
 
 // Use default router

@@ -5,10 +5,11 @@ import Show from '../../models/Show';
 import { TextField } from '@material-ui/core';
 
 interface Props {
+    className?: string;
     onShowSelected: (show: Show) => void;
 }
 
-const ShowFilters: React.FC<Props> = (props: Props): JSX.Element => {
+const ShowFilters: React.FC<Props> = ({ onShowSelected, className = '' }): JSX.Element => {
     const [allShows, setAllShows] = useState<Show[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedShow, setSelectedShow] = useState<Show | null>(null);
@@ -25,19 +26,22 @@ const ShowFilters: React.FC<Props> = (props: Props): JSX.Element => {
     }, []);
 
     function handleShowSelected(show: Show): void {
+        if (show === null) return;
         setSelectedShow(show);
-        props.onShowSelected(show);
+        onShowSelected(show);
     }
 
     return (
         <Autocomplete
             autoHighlight={true}
+            disableClearable={true}
             options={allShows}
             loading={loading}
             value={selectedShow}
+            className={className}
             onChange={(event: any, value: Show | null): void => handleShowSelected(value as Show)}
             getOptionLabel={(option): string => option.title}
-            renderInput={(params): JSX.Element => <TextField {...params} label="Select Show" variant="outlined" />}
+            renderInput={(params): JSX.Element => <TextField {...params} label="Show" variant="outlined" />}
         />
     );
 };

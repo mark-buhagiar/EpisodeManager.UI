@@ -1,4 +1,14 @@
-.search-button {
-    margin-top: 1em;
-    justify-content: flex-end;
+.filters {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .show-filter {
+        flex-basis: 75%;
+    }
+
+    .season-filter {
+        flex-basis: 25%;
+        flex-shrink: 1;
+        margin-left: 1em;
+    }
 }

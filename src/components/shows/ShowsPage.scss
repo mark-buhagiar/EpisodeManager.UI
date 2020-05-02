@@ -1,0 +1,28 @@
+.shows-page {
+    display: flex;
+    flex-flow: column;
+
+    .filters {
+        margin-top: 1em;
+    }
+
+    .results {
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .quality-buttons {
+        justify-content: start;
+    }
+
+    .table-cell {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        &.clickable {
+            cursor: pointer;
+        }
+    }
+}

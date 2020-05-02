@@ -3,7 +3,7 @@ import * as usersApi from '../../api/usersApi';
 import { Qualities, Quality } from '../../models/enums/Qualities';
 import EpisodePreferences from '../../models/EpisodePreferences';
 import Panel from '../common/panel';
-import QualityFilter from '../shows/QualityFilter';
+import QualityFilter from '../common/QualityFilter';
 
 const ManagePreferences: React.FC = (): JSX.Element => {
     const [selectedQualities, setSelectedQualities] = useState<Quality[]>([]);

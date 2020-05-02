@@ -1,33 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Show from '../../models/Show';
 import ShowFilter from './ShowFilter';
-import ButtonGroup from '../common/button/ButtonGroup';
-import { ButtonProps } from '../common/button/Button';
+import SeasonFilter from './SeasonFilter';
 import './Filters.scss';
 
 interface Props {
-    onSubmit: (selectedShowId: number | null) => void;
+    onSelectedShowChanged: (selectedShowId: number) => void;
+    onSelectedSeasonChanged: (selectedSeason: number | undefined) => void;
+    seasons: number[];
+    className: string;
 }
 
-const Filters: React.FC<Props> = ({ onSubmit }): JSX.Element => {
+const Filters: React.FC<Props> = ({
+    onSelectedShowChanged,
+    onSelectedSeasonChanged,
+    seasons,
+    className = '',
+}): JSX.Element => {
     const [selectedShow, setSelectedShow] = useState<Show | null>(null);
+    const [availableSeasons, setAvailableSeasons] = useState<number[]>([]);
 
-    function handleFormSubmit(): void {
-        onSubmit(selectedShow?.id ?? null);
-    }
-    const buttons = [
-        { label: 'Search', onClick: handleFormSubmit, enabled: selectedShow !== null, submit: true },
-    ] as ButtonProps[];
+    useEffect(() => {
+        setAvailableSeasons(seasons);
+    }, [seasons]);
 
     function handleShowSelected(show: Show): void {
+        if (show.id === selectedShow?.id) return;
+        onSelectedShowChanged(show.id);
         setSelectedShow(show);
+        setAvailableSeasons([]);
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
-            <ShowFilter onShowSelected={handleShowSelected} />
-            <ButtonGroup className="search-button" buttons={buttons} />
-        </form>
+        <div className={`filters ${className}`}>
+            <ShowFilter onShowSelected={handleShowSelected} className="show-filter" />
+            <SeasonFilter
+                availableSeasons={availableSeasons}
+                onSeasonSelected={onSelectedSeasonChanged}
+                className="season-filter"
+            />
+        </div>
     );
 };
 

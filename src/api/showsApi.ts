@@ -8,7 +8,12 @@ const buildEndpoint = (endpoint: string): string => ApiConfig.showsApiBase + end
 const showsMSEndpoints = {
     getForCurrentUserBetweenDates: buildEndpoint('episodes/GetForCurrentUserBetweenDates'),
     getAllForListing: buildEndpoint('shows/GetAllForListing'),
+    getForShow: buildEndpoint('episodes/GetForShow'),
 };
+
+function convertDates(episode: Episode): Episode {
+    return { ...episode, publishedDate: new Date(episode.publishedDate) };
+}
 
 export async function getForCurrentUserBetweenDates(startDate: Date, endDate: Date): Promise<Episode[]> {
     try {
@@ -17,7 +22,7 @@ export async function getForCurrentUserBetweenDates(startDate: Date, endDate: Da
             endDate: endDate,
         };
         const result = await axios.get<Episode[]>(showsMSEndpoints.getForCurrentUserBetweenDates, { params });
-        return result.data;
+        return result.data.map(convertDates);
     } catch (exception) {
         console.log(exception);
         throw exception;
@@ -27,7 +32,20 @@ export async function getForCurrentUserBetweenDates(startDate: Date, endDate: Da
 export async function getAllForListing(): Promise<Show[]> {
     try {
         const result = await axios.get<Episode[]>(showsMSEndpoints.getAllForListing);
-        return result.data;
+        return result.data.map(convertDates);
+    } catch (exception) {
+        console.log(exception);
+        throw exception;
+    }
+}
+
+export async function getForShow(showId: number): Promise<Episode[]> {
+    try {
+        const params = {
+            showId: showId,
+        };
+        const result = await axios.get<Episode[]>(showsMSEndpoints.getForShow, { params });
+        return result.data.map(convertDates);
     } catch (exception) {
         console.log(exception);
         throw exception;
