@@ -46,7 +46,7 @@ const useGroupedEpisodes = (episodes: Episode[]): ViewEpisode[] => {
                 )[0];
                 const downloadLinks = getDownloadLinksForEpisode(episodeGroup);
 
-                const placeholderDate = new Date();
+                const placeholderDate = new Date(1990, 0);
                 return {
                     key: `${latestEpisode.season ?? ''}.${latestEpisode.number ?? ''}.${latestEpisode.airDate ?? ''}`,
                     airDate: formStringToDateFormat(latestEpisode.airDate),

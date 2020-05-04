@@ -1,8 +1,9 @@
-import { TableContainer, Table as MaterialTable, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { TableContainer, Table as MaterialTable } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import Column from '../../../models/Column';
 import SortingInfo from '../../../models/SortingInfo';
 import TableHead from './TableHead';
+import TableBody from './TableBody';
 import IndexableObject from '../../../models/IndexableObject';
 import './Table.scss';
 
@@ -30,15 +31,7 @@ const Table = <T extends IndexableObject>({ columns, data, sort }: TableProps<T>
         <TableContainer>
             <MaterialTable>
                 <TableHead columns={columns} onSortChanged={handleSortChanged} sort={sortingInfo}></TableHead>
-                <TableBody>
-                    {sortedData.map((datum) => (
-                        <TableRow key={datum.key}>
-                            {columns.map((column) => (
-                                <TableCell key={column.id}>{column.field(datum)}</TableCell>
-                            ))}
-                        </TableRow>
-                    ))}
-                </TableBody>
+                <TableBody columns={columns} data={sortedData}></TableBody>
             </MaterialTable>
         </TableContainer>
     );
