@@ -71,6 +71,22 @@ server.get('/episodes/GetForShow', function (req, res, next) {
     res.redirect('/episodes');
 });
 
+server.post('/sync/SyncWithShowRss', function (req, res, next) {
+    res.status(200).send();
+});
+
+server.get('ParseHistory/GetParseHistoryBetweenDates', function (req, res, next) {
+    res.redirect('/parseHistories');
+});
+
+server.get('ParseHistory/GetParseHistoryDetails', function (req, res, next) {
+    res.redirect('/parseHistoryDetails');
+});
+
+server.post('sync/ForceSyncParseHistory', function (req, res, next) {
+    res.status(200).send();
+});
+
 // Use default router
 server.use(router);
 

@@ -17,5 +17,9 @@
         position: relative;
         font-size: 2em;
         margin-bottom: 1em;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 }

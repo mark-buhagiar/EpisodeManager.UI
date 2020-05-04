@@ -1,0 +1,9 @@
+.parse-history-summary {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    * {
+        flex-basis: 33%;
+    }
+}

@@ -9,7 +9,10 @@ import NavLink from './NavLink';
 
 const Header: React.FC = (): JSX.Element => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    const { isAuthorized: adminScreenAuthorized } = useIsAuthorizedFor(Permissions.READ_ADMIN);
+    const { isAuthorized: adminScreenAuthorized } = useIsAuthorizedFor(
+        Permissions.READ_ADMIN,
+        Permissions.EXECUTE_ADMIN,
+    );
 
     const navLinksLeft = [
         { id: 1, to: Route.HOMEPAGE, exact: true, label: RouteLabel.HOMEPAGE },
