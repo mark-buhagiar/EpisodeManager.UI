@@ -5,6 +5,7 @@ import Episode from '../../models/Episode';
 import * as showsApi from '../../api/showsApi';
 import ComponentLoading from '../loading/ComponentLoading';
 import './ShowsPage.scss';
+import withAuthenticationRequired from '../../HoC/withAuthenticationRequired';
 
 const ShowsPage: React.FC = (): JSX.Element => {
     const [showId, setShowId] = useState<number | null>(null);
@@ -59,4 +60,4 @@ const ShowsPage: React.FC = (): JSX.Element => {
     );
 };
 
-export default ShowsPage;
+export default withAuthenticationRequired(ShowsPage);

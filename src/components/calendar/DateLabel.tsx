@@ -24,7 +24,10 @@ const CalendarDateLabel: React.FC<Props> = ({ date, isToday }): JSX.Element => {
     return (
         <div className="date-label">
             {date.getDate() === 1 ? <div className="month-label">{monthNames[date.getMonth()]}</div> : ''}
-            <div className={['day-label', isToday ? 'date-today' : ''].join(' ')}>{date.getDate()}</div>
+            <div className={['day-label'].join(' ')}>
+                {date.getDate()}
+                {isToday ? <div className="date-today"></div> : ''}
+            </div>
         </div>
     );
 };

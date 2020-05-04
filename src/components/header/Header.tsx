@@ -14,8 +14,8 @@ const Header: React.FC = (): JSX.Element => {
     const navLinksLeft = [
         { id: 1, to: Route.HOMEPAGE, exact: true, label: RouteLabel.HOMEPAGE },
         { id: 3, to: Route.SHOWS, label: RouteLabel.SHOWS },
-        { id: 4, to: Route.HELP, label: RouteLabel.HELP },
         { id: 5, to: Route.ADMIN, label: RouteLabel.ADMIN, visible: adminScreenAuthorized },
+        { id: 4, to: Route.HELP, label: RouteLabel.HELP },
     ] as NavLinkObj[];
 
     const navLinksRight = [
