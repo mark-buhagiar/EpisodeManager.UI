@@ -8,6 +8,7 @@ import EpisodeCountDailyDistribution from '../../../models/EpisodeCountDailyDist
 import DateRange from '../../common/DateRange';
 import Panel from '../../common/panel';
 import Color from 'color';
+import ComponentLoading from '../../loading/ComponentLoading';
 
 const DailyBreakdown: React.FC = (): JSX.Element => {
     const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +66,7 @@ const DailyBreakdown: React.FC = (): JSX.Element => {
 
     return (
         <Panel title="Daily Breakdown" panelActions={panelActions}>
-            <Bar data={data} options={chartOptions} />
+            {isLoading ? <ComponentLoading /> : <Bar data={data} options={chartOptions} />}
         </Panel>
     );
 };

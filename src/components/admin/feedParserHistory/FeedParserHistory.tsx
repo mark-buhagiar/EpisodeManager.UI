@@ -30,7 +30,10 @@ const FeedParserHistory: React.FC = (): JSX.Element => {
             return <span className="no-results">No Feed Parser Data Available</span>;
         } else {
             return parseHistoryItems
-                .sort((a, b) => b.lastSyncedOn.getTime() - a.lastSyncedOn.getTime())
+                .sort(
+                    (a: ParseHistoryListing, b: ParseHistoryListing) =>
+                        b.lastSyncedOn.getTime() - a.lastSyncedOn.getTime(),
+                )
                 .map((parseHistoryItem) => (
                     <FeedParserHistoryItem key={parseHistoryItem.id} parseHistoryItem={parseHistoryItem} />
                 ));

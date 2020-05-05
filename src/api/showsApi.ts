@@ -1,17 +1,20 @@
 import axios from 'axios';
-import Episode from '../models/Episode';
-import ApiConfig from '../config/apiConfig';
-import Show from '../models/Show';
-import EpisodeCountDailyDistribution from '../models/EpisodeCountDailyDistribution';
 import moment from 'moment';
+import ApiConfig from '../config/apiConfig';
+import Episode from '../models/Episode';
+import EpisodeCountDailyDistribution from '../models/EpisodeCountDailyDistribution';
+import EpisodeCountQualityDistribution from '../models/EpisodeCountQualityDistribution';
+import Show from '../models/Show';
 
 const buildEndpoint = (endpoint: string): string => ApiConfig.showsApiBase + endpoint;
 
 const showsMSEndpoints = {
-    getForCurrentUserBetweenDates: buildEndpoint('episodes/GetForCurrentUserBetweenDates'),
     getAllForListing: buildEndpoint('shows/GetAllForListing'),
+    getTotalShowCount: buildEndpoint('shows/GetTotalShowCount'),
+    getForCurrentUserBetweenDates: buildEndpoint('episodes/GetForCurrentUserBetweenDates'),
     getForShow: buildEndpoint('episodes/GetForShow'),
     getEpisodeCountDailyDistribution: buildEndpoint('episodes/GetEpisodeCountDailyDistribution'),
+    getEpisodeCountQualityDistribution: buildEndpoint('episodes/GetEpisodeCountQualityDistribution'),
 };
 
 function convertEpisodeDates(episode: Episode): Episode {
@@ -73,6 +76,28 @@ export async function getEpisodeCountDailyDistribution(
                 return { ...datum, date: moment(datum.date).toDate() };
             })
             .sort((a, b) => a.date.getTime() - b.date.getTime());
+    } catch (exception) {
+        console.log(exception);
+        throw exception;
+    }
+}
+
+export async function getEpisodeCountQualityDistribution(): Promise<EpisodeCountQualityDistribution[]> {
+    try {
+        const result = await axios.get<EpisodeCountQualityDistribution[]>(
+            showsMSEndpoints.getEpisodeCountQualityDistribution,
+        );
+        return result.data;
+    } catch (exception) {
+        console.log(exception);
+        throw exception;
+    }
+}
+
+export async function getTotalShowCount(): Promise<number> {
+    try {
+        const result = await axios.get<number>(showsMSEndpoints.getTotalShowCount);
+        return result.data;
     } catch (exception) {
         console.log(exception);
         throw exception;

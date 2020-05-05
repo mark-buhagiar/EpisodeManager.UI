@@ -1,3 +1,18 @@
+const qualityDistribution = [
+    {
+        count: 31,
+        quality: 1,
+    },
+    {
+        count: 31,
+        quality: 2,
+    },
+    {
+        count: 27,
+        quality: 3,
+    },
+];
+
 const dailyBreakdown = [
     {
         qualityDistribution: [
@@ -434,4 +449,5 @@ module.exports = {
     parseHistories,
     parseHistoryDetails,
     dailyBreakdown,
+    qualityDistribution,
 };

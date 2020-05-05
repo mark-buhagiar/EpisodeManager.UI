@@ -91,6 +91,18 @@ server.get('/episodes/GetEpisodeCountDailyDistribution', function (req, res, nex
     res.redirect('/dailyBreakdown');
 });
 
+server.get('/episodes/GetEpisodeCountQualityDistribution', function (req, res, next) {
+    res.redirect('/qualityDistribution');
+});
+
+server.get('/shows/getTotalShowCount', function (req, res, next) {
+    res.status.send(456)
+});
+
+server.get('/users/GetTotalUserCount', function (req, res, next) {
+    res.status.send(15)
+});
+
 // Use default router
 server.use(router);
 

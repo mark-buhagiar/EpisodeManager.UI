@@ -12,6 +12,7 @@ const usersMSEndpoints = {
     subscribeToShow: buildEndpoint('subscriptions/SubscribeToShow'),
     setUserEpisodePreferences: buildEndpoint('users/setUserEpisodePreferences'),
     getUserEpisodePreferences: buildEndpoint('users/getUserEpisodePreferences'),
+    getTotalUserCount: buildEndpoint('users/GetTotalUserCount'),
 };
 
 export async function addEpisodeDownloaded(episodeId: number): Promise<void> {
@@ -72,6 +73,16 @@ export async function setUserEpisodePreferences(preferences: EpisodePreferences)
 export async function getUserEpisodePreferences(): Promise<EpisodePreferences> {
     try {
         const response = await axios.get(usersMSEndpoints.getUserEpisodePreferences);
+        return response.data;
+    } catch (exception) {
+        console.log(exception);
+        throw exception;
+    }
+}
+
+export async function getTotalUserCount(): Promise<number> {
+    try {
+        const response = await axios.get<number>(usersMSEndpoints.getTotalUserCount);
         return response.data;
     } catch (exception) {
         console.log(exception);
