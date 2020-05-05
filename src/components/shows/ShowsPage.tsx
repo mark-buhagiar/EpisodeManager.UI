@@ -34,7 +34,7 @@ const ShowsPage: React.FC = (): JSX.Element => {
         setFilterSeason(selectedSeason);
     }
 
-    const body = (): JSX.Element => {
+    const body = (): React.ReactNode => {
         if (loading) {
             return <ComponentLoading />;
         } else if (showId === null) {

@@ -22,16 +22,23 @@ interface Props {
 const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: Props): JSX.Element => {
     const [details, setDetails] = useState<ParseHistoryDetails | null>(null);
     const [forceResyncEnabled, setForceResyncEnabled] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function handleForceResyncClicked(): Promise<void> {
         if (details === null) return;
         setForceResyncEnabled(false);
+        setIsLoading(true);
         await feedParserApi.forceSyncParseHistory(details.id);
+        setIsLoading(false);
         setForceResyncEnabled(true);
     }
 
     const buttons = [
-        { label: 'Force Re-sync', onClick: handleForceResyncClicked, enabled: forceResyncEnabled },
+        {
+            label: 'Force Re-sync',
+            onClick: handleForceResyncClicked,
+            enabled: forceResyncEnabled && (details?.episodeTitles.length ?? 1 > 0),
+        },
     ] as ButtonProps[];
 
     async function handlePanelExpansion(event: React.ChangeEvent<{}>, expanded: boolean): Promise<void> {
@@ -42,7 +49,7 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
         setForceResyncEnabled(true);
     }
 
-    return (
+    const expansionPanelBody = (
         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} onChange={handlePanelExpansion}>
             <ExpansionPanelSummary expandIcon={<span className="material-icons">expand_more</span>}>
                 <div className="parse-history-summary">
@@ -76,6 +83,8 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
             </ExpansionPanelActions>
         </ExpansionPanel>
     );
+
+    return <>{isLoading ? <ComponentLoading /> : expansionPanelBody}</>;
 };
 
 export default FeedParserHistoryItem;
