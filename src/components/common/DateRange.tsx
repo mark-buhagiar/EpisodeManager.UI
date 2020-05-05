@@ -17,6 +17,7 @@ const DateRange: React.FC<Props> = ({ onDateRangeChanged, ...props }: Props): JS
     useEffect(() => {
         if (startDate !== null && endDate !== null)
             onDateRangeChanged(startDate.startOf('day').toDate(), endDate.endOf('day').toDate());
+        // eslint-disable-next-line
     }, [startDate, endDate]);
 
     return (
