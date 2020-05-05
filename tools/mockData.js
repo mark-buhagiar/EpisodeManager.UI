@@ -1,3 +1,91 @@
+const dailyBreakdown = [
+    {
+        qualityDistribution: [
+            {
+                count: 31,
+                quality: 1,
+            },
+            {
+                count: 31,
+                quality: 2,
+            },
+            {
+                count: 27,
+                quality: 3,
+            },
+        ],
+        date: '2020-05-01T00:00:00',
+    },
+    {
+        qualityDistribution: [
+            {
+                count: 18,
+                quality: 3,
+            },
+            {
+                count: 17,
+                quality: 2,
+            },
+            {
+                count: 19,
+                quality: 1,
+            },
+        ],
+        date: '2020-05-02T00:00:00',
+    },
+    {
+        qualityDistribution: [
+            {
+                count: 8,
+                quality: 3,
+            },
+            {
+                count: 11,
+                quality: 2,
+            },
+            {
+                count: 7,
+                quality: 1,
+            },
+        ],
+        date: '2020-05-03T00:00:00',
+    },
+    {
+        qualityDistribution: [
+            {
+                count: 20,
+                quality: 1,
+            },
+            {
+                count: 22,
+                quality: 2,
+            },
+            {
+                count: 25,
+                quality: 3,
+            },
+        ],
+        date: '2020-05-04T00:00:00',
+    },
+    {
+        qualityDistribution: [
+            {
+                count: 17,
+                quality: 1,
+            },
+            {
+                count: 17,
+                quality: 2,
+            },
+            {
+                count: 15,
+                quality: 3,
+            },
+        ],
+        date: '2020-05-05T00:00:00',
+    },
+];
+
 const parseHistoryDetails = {
     id: 41,
     episodeTitles: [
@@ -345,4 +433,5 @@ module.exports = {
     shows,
     parseHistories,
     parseHistoryDetails,
+    dailyBreakdown,
 };

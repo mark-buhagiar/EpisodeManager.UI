@@ -87,6 +87,10 @@ server.post('/sync/ForceSyncParseHistory', function (req, res, next) {
     res.status(200).send();
 });
 
+server.get('/episodes/GetEpisodeCountDailyDistribution', function (req, res, next) {
+    res.redirect('/dailyBreakdown');
+});
+
 // Use default router
 server.use(router);
 

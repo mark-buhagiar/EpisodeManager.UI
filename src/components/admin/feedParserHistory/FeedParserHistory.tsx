@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import * as feedParserApi from '../../api/feedParserApi';
-import ParseHistoryListing from '../../models/ParseHistoryListing';
-import DateRange from '../common/DateRange';
-import Panel from '../common/panel';
-import FeedParserHistoryItem from './FeedParserHistoryItem';
+import * as feedParserApi from '../../../api/feedParserApi';
+import ParseHistoryListing from '../../../models/ParseHistoryListing';
+import DateRange from '../../common/DateRange';
+import Panel from '../../common/panel';
+import ComponentLoading from '../../loading/ComponentLoading';
 import './FeedParserHistory.scss';
-import ComponentLoading from '../loading/ComponentLoading';
+import FeedParserHistoryItem from './FeedParserHistoryItem';
 
 const FeedParserHistory: React.FC = (): JSX.Element => {
     const today = new Date();

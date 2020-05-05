@@ -62,6 +62,7 @@ export async function getParseHistoryDetails(id: number): Promise<ParseHistoryDe
         throw exception;
     }
 }
+
 export async function forceSyncParseHistory(id: number): Promise<void> {
     try {
         const params = {

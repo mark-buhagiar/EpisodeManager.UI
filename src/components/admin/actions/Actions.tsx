@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Panel from '../common/panel';
-import ButtonGroup from '../common/button/ButtonGroup';
-import { ButtonProps } from '../common/button/Button';
-import * as feedParserApi from '../../api/feedParserApi';
+import Panel from '../../common/panel';
+import ButtonGroup from '../../common/button/ButtonGroup';
+import { ButtonProps } from '../../common/button/Button';
+import * as feedParserApi from '../../../api/feedParserApi';
 import './AdminActions.scss';
 
 const AdminActions: React.FC = (): JSX.Element => {

@@ -1,3 +1,5 @@
+import Color from 'color';
+
 export enum QualityId {
     StandardDef = 1,
     P720 = 2,
@@ -13,6 +15,12 @@ export enum QualityDescription {
 export type Quality = {
     id: QualityId;
     description: QualityDescription;
+};
+
+export const QualityColors = {
+    [QualityId.StandardDef]: Color('rgb(255, 99, 132)'),
+    [QualityId.P720]: Color('rgb(255, 206, 86)'),
+    [QualityId.P1080]: Color('rgb(75, 192, 192)'),
 };
 
 export const Qualities = [
