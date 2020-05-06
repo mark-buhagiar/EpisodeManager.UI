@@ -96,11 +96,11 @@ server.get('/episodes/GetEpisodeCountQualityDistribution', function (req, res, n
 });
 
 server.get('/shows/getTotalShowCount', function (req, res, next) {
-    res.status.send(456)
+    res.send(JSON.stringify(456))
 });
 
 server.get('/users/GetTotalUserCount', function (req, res, next) {
-    res.status.send(15)
+    res.send(JSON.stringify(56))
 });
 
 // Use default router

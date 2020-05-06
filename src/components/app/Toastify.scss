@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.Toastify__toast {
+    color: $text-color;
+
+    &.Toastify__toast--info {
+        background-color: darken($text-color, 70);
+    }
+    &.Toastify__toast--success {
+        background-color: darken($quality-1080, 30);
+    }
+    &.Toastify__toast--warning {
+        background-color: darken($quality-720, 30);
+    }
+    &.Toastify__toast--error {
+        background-color: darken($quality-sd, 30);
+    }
+}
