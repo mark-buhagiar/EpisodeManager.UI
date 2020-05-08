@@ -6,9 +6,9 @@ import { useAuth0 } from '../../helpers/reactAuth0Spa';
 import { Redirect } from 'react-router-dom';
 
 const LandingPage: React.FC = (): JSX.Element => {
-    const { loginWithPopup, isAuthenticated } = useAuth0();
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
     const buttons = [
-        { label: 'Log In / Sign Up', onClick: async (): Promise<void> => await loginWithPopup() },
+        { label: 'Log In / Sign Up', onClick: async (): Promise<void> => await loginWithRedirect() },
     ] as ButtonProps[];
 
     const landingPage = (
