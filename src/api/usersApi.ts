@@ -42,7 +42,7 @@ export async function unsubscribeFromShow(showId: number): Promise<void> {
         const params = {
             showId,
         };
-        await axios.patch(usersMSEndpoints.unsubscribeFromShow, { params });
+        await axios.patch(usersMSEndpoints.unsubscribeFromShow, null, { params });
     } catch (exception) {
         console.log(exception);
         throw exception;
