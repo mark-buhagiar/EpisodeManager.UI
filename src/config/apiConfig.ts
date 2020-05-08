@@ -1,9 +1,9 @@
 import EnvironmentConfig from './environmentConfig';
 
 let ApiConfig = {
-    feedParserApiBase: 'https://localhost:6003/api/v1/',
-    showsApiBase: 'https://localhost:6001/api/v1/',
-    usersApiBase: 'https://localhost:6002/api/v1/',
+    feedParserApiBase: 'https://feedparser.episodemanager.eu/api/v1/',
+    showsApiBase: 'https://shows.episodemanager.eu/api/v1/',
+    usersApiBase: 'https://users.episodemanager.eu/api/v1/',
 };
 
 if (EnvironmentConfig.isMocking) {
