@@ -20,6 +20,7 @@ export const withAuth = <P extends object>(WrappedComponent: React.ComponentType
             redirect_uri={window.location.origin}
             onRedirectCallback={onRedirectCallback}
             useRefreshTokens={true}
+            cacheLocation="localstorage"
         >
             <WrappedComponent {...props} />
         </Auth0Provider>
