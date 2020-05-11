@@ -5,6 +5,7 @@ import { withEpisodesSelectedContext } from '../../HoC/withEpisodesSelectedConte
 import monthReducer from '../../reducers/monthReducer';
 import { MonthReducerActionTypes } from '../../reducers/monthReducerActions';
 import Calendar from '../calendar';
+import Message from './Message';
 import { ButtonProps } from '../common/button/Button';
 import ButtonGroup from '../common/button/ButtonGroup';
 import DateSelector from '../dateSelector/DateSelector';
@@ -25,6 +26,7 @@ const HomePage: React.FC = (): JSX.Element => {
 
     return (
         <div className="homepage">
+            <Message />
             <div className="calendar-navigation">
                 <QualitiesLegend />
                 <DateSelector {...props} />

@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .homepage {
     display: flex;
     flex-flow: column;
@@ -25,5 +27,17 @@
 
     .homepage-actions {
         margin-top: 2em;
+    }
+
+    .message {
+        background-color: rgba($highlight-color, 0.4);
+        border: 2px solid $highlight-color;
+        border-radius: 1em;
+        padding: 1em;
+        margin: 0 4em;
+
+        a {
+            color: inherit;
+        }
     }
 }
