@@ -1,9 +1,27 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
+import TestRenderer from 'react-test-renderer';
 import App from './App';
-import { render } from '@testing-library/react';
+jest.mock('../../config/environmentConfig.ts');
 
-test('renders learn react link', () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeTruthy();
+// jest.mock('../../config/environmentConfig.ts', () => {
+//     const actual = jest.requireActual('../../config/environmentConfig.ts');
+//     return {
+//         ...actual,
+//         __esModule: true, // this property makes it work
+//         default: { isMocking: true },
+//     };
+// });
+
+describe('When accessing the site', () => {
+    it('should render', () => {
+        const application = TestRenderer.create(
+            <MemoryRouter>
+                <App />
+            </MemoryRouter>,
+        );
+
+        expect(application).toBeTruthy();
+        expect(application).toMatchSnapshot();
+    });
 });
