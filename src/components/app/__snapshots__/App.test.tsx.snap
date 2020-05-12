@@ -1,6 +1,240 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`When accessing the site should render 1`] = `
+exports[`When accessing the site should render the home page if authentication is true and loading is false 1`] = `
+<div
+  className="app"
+>
+  <nav
+    className="nav-bar no-select"
+  >
+    <div
+      className="app-container"
+      id="navContainer"
+    >
+      <span
+        className="app-title"
+      >
+        Episode Manager
+      </span>
+      <a
+        aria-current="page"
+        className="nav-link active-nav-link"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Calendar
+      </a>
+      <a
+        aria-current={null}
+        className="nav-link"
+        href="/shows"
+        onClick={[Function]}
+      >
+        Shows
+      </a>
+      <a
+        aria-current={null}
+        className="nav-link"
+        href="/help"
+        onClick={[Function]}
+      >
+        Help
+      </a>
+      <span
+        className="spacer"
+      />
+      <a
+        aria-current={null}
+        className="nav-link"
+        href="/profile"
+        onClick={[Function]}
+      >
+        Profile
+      </a>
+      <span
+        className="nav-link"
+      >
+        Log Out
+      </span>
+    </div>
+  </nav>
+  <div
+    className="Toastify"
+  />
+  <div
+    className="app-container"
+  >
+    <div
+      className="homepage"
+    >
+      <div
+        className="message"
+      >
+        Hello! Welcome to Episode Manager 2.0. Everything here is very much still a work in progress, so if you run into any issues or have any feedback, please get in touch 
+        <a
+          href="mailto:markbuh25@gmail.com"
+        >
+          here
+        </a>
+        . To set up your shows, please visit your profile page. If you need help remembering what you were subscribed to, get in touch and I will forward you your list 😊.
+      </div>
+      <div
+        className="calendar-navigation"
+      >
+        <div
+          className="qualities-legend"
+        >
+          <div>
+            <div
+              className="quality-indicator standard-def"
+              title="Standard definition"
+            />
+             
+            Standard definition
+          </div>
+          <div>
+            <div
+              className="quality-indicator p720"
+              title="720p"
+            />
+             
+            720p
+          </div>
+          <div>
+            <div
+              className="quality-indicator p1080"
+              title="1080p"
+            />
+             
+            1080p
+          </div>
+        </div>
+        <div
+          className="date-selector"
+        >
+          <div
+            className="date-changer no-select "
+            id="navigate_before"
+            onClick={[Function]}
+          >
+            <span
+              className="material-icons"
+            >
+              navigate_before
+            </span>
+          </div>
+          <div
+            className="month-label"
+          >
+            May
+             
+            <br />
+             
+            <div
+              className="year"
+            >
+              2020
+            </div>
+          </div>
+          <div
+            className="date-changer no-select "
+            id="navigate_next"
+            onClick={[Function]}
+          >
+            <span
+              className="material-icons"
+            >
+              navigate_next
+            </span>
+          </div>
+        </div>
+        <div
+          className="button-group refresh-button"
+        >
+          <button
+            className="button no-select "
+            onClick={[Function]}
+            title=""
+            type="button"
+          >
+            
+            Refresh
+          </button>
+        </div>
+      </div>
+      <div
+        className="calendar"
+      >
+        <div
+          className="calendar-header"
+        >
+          <div
+            className="calendar-header-item"
+          >
+            Mon
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Tue
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Wed
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Thu
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Fri
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Sat
+          </div>
+          <div
+            className="calendar-header-item"
+          >
+            Sun
+          </div>
+        </div>
+        <div
+          className="calendar-body"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer"
+  >
+    <a
+      href="https://www.linkedin.com/in/buhagiar-mark/"
+      target="blank"
+    >
+      From Mark with
+       
+      <span
+        aria-label="heart"
+        role="img"
+      >
+        ♥️
+      </span>
+       
+      - 
+      2020
+    </a>
+  </div>
+</div>
+`;
+
+exports[`When accessing the site should render the landing page if authentication is false and loading is false 1`] = `
 <div
   className="app"
 >
@@ -64,6 +298,75 @@ exports[`When accessing the site should render 1`] = `
         className="sub-text"
       >
         Please contact me if you previously had an account and would like your data to be migrated
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer"
+  >
+    <a
+      href="https://www.linkedin.com/in/buhagiar-mark/"
+      target="blank"
+    >
+      From Mark with
+       
+      <span
+        aria-label="heart"
+        role="img"
+      >
+        ♥️
+      </span>
+       
+      - 
+      2020
+    </a>
+  </div>
+</div>
+`;
+
+exports[`When accessing the site should render the loading page if authentication is false and loading is true 1`] = `
+<div
+  className="app"
+>
+  <nav
+    className="nav-bar no-select"
+  >
+    <div
+      className="app-container"
+      id="navContainer"
+    >
+      <span
+        className="app-title"
+      >
+        Episode Manager
+      </span>
+      <span
+        className="spacer"
+      />
+      <span
+        className="nav-link"
+      >
+        Log In
+      </span>
+    </div>
+  </nav>
+  <div
+    className="Toastify"
+  />
+  <div
+    className="app-container"
+  >
+    <div
+      className="loading-container"
+    >
+      <div
+        className="loading-indicator"
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
       </div>
     </div>
   </div>

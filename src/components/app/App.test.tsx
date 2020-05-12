@@ -2,26 +2,31 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import TestRenderer from 'react-test-renderer';
 import App from './App';
-jest.mock('../../config/environmentConfig.ts');
-
-// jest.mock('../../config/environmentConfig.ts', () => {
-//     const actual = jest.requireActual('../../config/environmentConfig.ts');
-//     return {
-//         ...actual,
-//         __esModule: true, // this property makes it work
-//         default: { isMocking: true },
-//     };
-// });
+import * as environmentConfig from '../../config/environmentConfig';
 
 describe('When accessing the site', () => {
-    it('should render', () => {
-        const application = TestRenderer.create(
-            <MemoryRouter>
-                <App />
-            </MemoryRouter>,
-        );
-
-        expect(application).toBeTruthy();
-        expect(application).toMatchSnapshot();
+    beforeAll(() => {
+        environmentConfig.default.isMocking = true;
     });
+
+    it.each`
+        test              | isAuthenticated | isLoading
+        ${'loading page'} | ${false}        | ${true}
+        ${'landing page'} | ${false}        | ${false}
+        ${'home page'}    | ${true}         | ${false}
+    `(
+        'should render the $test if authentication is $isAuthenticated and loading is $isLoading',
+        ({ test, isAuthenticated, isLoading }): void => {
+            environmentConfig.default.isAuthenticated = isAuthenticated;
+            environmentConfig.default.loading = isLoading;
+
+            const application = TestRenderer.create(
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>,
+            );
+            expect(application).toBeTruthy();
+            expect(application).toMatchSnapshot();
+        },
+    );
 });
