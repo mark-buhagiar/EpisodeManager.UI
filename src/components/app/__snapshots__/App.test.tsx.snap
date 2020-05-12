@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When accessing the site should render 1`] = `
+<div
+  className="app"
+>
+  <nav
+    className="nav-bar no-select"
+  >
+    <div
+      className="app-container"
+      id="navContainer"
+    >
+      <span
+        className="app-title"
+      >
+        Episode Manager
+      </span>
+      <span
+        className="spacer"
+      />
+      <span
+        className="nav-link"
+      >
+        Log In
+      </span>
+    </div>
+  </nav>
+  <div
+    className="Toastify"
+  />
+  <div
+    className="app-container"
+  >
+    <div
+      className="landing-page"
+    >
+      <div
+        className="title site-name"
+      >
+        Episode
+        <br />
+        Manager
+        <span
+          className="version-number"
+        >
+          v2.0
+        </span>
+      </div>
+      <div
+        className="button-group button-group"
+      >
+        <button
+          className="button no-select "
+          onClick={[Function]}
+          title=""
+          type="button"
+        >
+          
+          Log In / Sign Up
+        </button>
+      </div>
+      <div
+        className="sub-text"
+      >
+        Please contact me if you previously had an account and would like your data to be migrated
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer"
+  >
+    <a
+      href="https://www.linkedin.com/in/buhagiar-mark/"
+      target="blank"
+    >
+      From Mark with
+       
+      <span
+        aria-label="heart"
+        role="img"
+      >
+        ♥️
+      </span>
+       
+      - 
+      2020
+    </a>
+  </div>
+</div>
+`;
