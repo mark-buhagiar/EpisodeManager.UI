@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When data retrieval completes successfully should display the chartjs chart 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Daily Breakdown
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    Fake Chart
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When data retrieval errors out should display an error icon 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Daily Breakdown
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="component-error-container"
+    >
+      <span
+        class="component-error"
+      >
+        <span
+          class="material-icons"
+        >
+          error_outline
+        </span>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When the component is loading should display a loading spinner 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Daily Breakdown
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="component-loading-container"
+    >
+      <span
+        class="component-loading"
+      >
+        <div
+          class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

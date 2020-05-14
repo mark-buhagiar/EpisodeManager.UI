@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When clicking the fetch new episodes button should render 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Actions
+      <div
+        class="panel-actions"
+      />
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="button-group admin-actions"
+    >
+      <button
+        class="button no-select "
+        title=""
+        type="button"
+      >
+        Fetch New Episodes
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

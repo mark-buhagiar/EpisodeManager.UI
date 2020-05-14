@@ -10,8 +10,10 @@ const AdminActions: React.FC = (): JSX.Element => {
 
     async function handleFetchNewEpisodesClicked(): Promise<void> {
         setIsLoading(true);
-        await feedParserApi.syncWithShowRss();
-        setIsLoading(false);
+        try {
+            await feedParserApi.syncWithShowRss();
+            setIsLoading(false);
+        } catch (ex) {}
     }
 
     const buttons = [

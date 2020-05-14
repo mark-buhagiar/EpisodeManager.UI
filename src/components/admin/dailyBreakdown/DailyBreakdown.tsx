@@ -1,3 +1,4 @@
+import Color from 'color';
 import moment from 'moment';
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -7,10 +8,11 @@ import { Qualities, QualityColors } from '../../../models/enums/Qualities';
 import EpisodeCountDailyDistribution from '../../../models/EpisodeCountDailyDistribution';
 import DateRange from '../../common/DateRange';
 import Panel from '../../common/panel';
-import Color from 'color';
+import ComponentError from '../../error/ComponentError';
 import ComponentLoading from '../../loading/ComponentLoading';
 
 const DailyBreakdown: React.FC = (): JSX.Element => {
+    const [hasErrored, setHasErrored] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState({});
     const today = new Date();
@@ -51,8 +53,12 @@ const DailyBreakdown: React.FC = (): JSX.Element => {
 
     async function handleDateRangeChanged(startDate: Date, endDate: Date): Promise<void> {
         setIsLoading(true);
-        const dailyDistribution = await showsApi.getEpisodeCountDailyDistribution(startDate, endDate);
-        setData(convertDataToChartJs(dailyDistribution));
+        try {
+            const dailyDistribution = await showsApi.getEpisodeCountDailyDistribution(startDate, endDate);
+            setData(convertDataToChartJs(dailyDistribution));
+        } catch (ex) {
+            setHasErrored(true);
+        }
         setIsLoading(false);
     }
 
@@ -66,7 +72,13 @@ const DailyBreakdown: React.FC = (): JSX.Element => {
 
     return (
         <Panel title="Daily Breakdown" panelActions={panelActions}>
-            {isLoading ? <ComponentLoading /> : <Bar data={data} options={chartOptions} />}
+            {isLoading ? (
+                <ComponentLoading />
+            ) : hasErrored ? (
+                <ComponentError />
+            ) : (
+                <Bar data={data} options={chartOptions} />
+            )}
         </Panel>
     );
 };
