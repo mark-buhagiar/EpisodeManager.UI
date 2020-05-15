@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When data retrieval completes successfully should display a list of results 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Feed Parser History
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="MuiPaper-root MuiExpansionPanel-root MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      data-testid="feed-parser-history-item-30"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="MuiExpansionPanelSummary-content"
+        >
+          <div
+            class="parse-history-summary"
+          >
+            <div
+              class="date"
+              title="Last synced on"
+            >
+              16 April 2020 22:15
+            </div>
+            <div
+              class="episode-count"
+              title="Episode count"
+            >
+              100
+            </div>
+            <div
+              class="status"
+            >
+              Success
+            </div>
+          </div>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <span
+              class="material-icons"
+            >
+              expand_more
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiExpansionPanel-root MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      data-testid="feed-parser-history-item-28"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="MuiExpansionPanelSummary-content"
+        >
+          <div
+            class="parse-history-summary"
+          >
+            <div
+              class="date"
+              title="Last synced on"
+            >
+              13 April 2020 15:28
+            </div>
+            <div
+              class="episode-count"
+              title="Episode count"
+            >
+              100
+            </div>
+            <div
+              class="status"
+            >
+              Success
+            </div>
+          </div>
+        </div>
+        <div
+          aria-disabled="false"
+          aria-hidden="true"
+          class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <span
+              class="material-icons"
+            >
+              expand_more
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When data retrieval completes successfully should display the appropriate message if there are no results 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Feed Parser History
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <span
+      class="no-results"
+    >
+      No Feed Parser Data Available
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When data retrieval errors out should display an error icon 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Feed Parser History
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="component-error-container"
+    >
+      <span
+        class="component-error"
+      >
+        <span
+          class="material-icons"
+        >
+          error_outline
+        </span>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When the component is loading should display a loading spinner 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Feed Parser History
+      <div
+        class="panel-actions"
+      >
+        <div
+          class="date-range"
+        >
+          <input
+            data-testid="mockedDateField"
+          />
+          <input
+            data-testid="mockedDateField"
+          />
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="component-loading-container"
+    >
+      <span
+        class="component-loading"
+      >
+        <div
+          class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

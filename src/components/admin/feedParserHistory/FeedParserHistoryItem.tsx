@@ -50,7 +50,11 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
     }
 
     const expansionPanelBody = (
-        <ExpansionPanel TransitionProps={{ unmountOnExit: true }} onChange={handlePanelExpansion}>
+        <ExpansionPanel
+            data-testid={`feed-parser-history-item-${summary.id}`}
+            TransitionProps={{ unmountOnExit: true }}
+            onChange={handlePanelExpansion}
+        >
             <ExpansionPanelSummary expandIcon={<span className="material-icons">expand_more</span>}>
                 <div className="parse-history-summary">
                     <div className="date" title="Last synced on">

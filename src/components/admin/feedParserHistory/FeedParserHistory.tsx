@@ -6,16 +6,22 @@ import Panel from '../../common/panel';
 import ComponentLoading from '../../loading/ComponentLoading';
 import './FeedParserHistory.scss';
 import FeedParserHistoryItem from './FeedParserHistoryItem';
+import ComponentError from '../../error/ComponentError';
 
 const FeedParserHistory: React.FC = (): JSX.Element => {
     const today = new Date();
     const [parseHistoryItems, setParseHistoryItems] = useState<ParseHistoryListing[]>([]);
     const [loading, setIsLoading] = useState(false);
+    const [hasErrored, setHasErrored] = useState(false);
 
     async function handleDateRangeChanged(startDate: Date, endDate: Date): Promise<void> {
         setIsLoading(true);
-        const feedParserHistory = await feedParserApi.getParseHistoryBetweenDates(startDate, endDate);
-        setParseHistoryItems(feedParserHistory);
+        try {
+            const feedParserHistory = await feedParserApi.getParseHistoryBetweenDates(startDate, endDate);
+            setParseHistoryItems(feedParserHistory);
+        } catch (ex) {
+            setHasErrored(true);
+        }
         setIsLoading(false);
     }
 
@@ -26,6 +32,8 @@ const FeedParserHistory: React.FC = (): JSX.Element => {
     const body = (): React.ReactNode => {
         if (loading) {
             return <ComponentLoading />;
+        } else if (hasErrored) {
+            return <ComponentError />;
         } else if (parseHistoryItems.length === 0) {
             return <span className="no-results">No Feed Parser Data Available</span>;
         } else {

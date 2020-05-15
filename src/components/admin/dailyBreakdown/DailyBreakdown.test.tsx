@@ -3,7 +3,6 @@ import { render, fireEvent, act } from '@testing-library/react';
 
 import DailyBreakdown from './DailyBreakdown';
 import { getEpisodeCountDailyDistribution } from '../../../api/showsApi';
-import { DatePicker } from '@material-ui/pickers';
 import moment from 'moment';
 
 jest.mock('@material-ui/pickers', () => {
@@ -12,7 +11,7 @@ jest.mock('@material-ui/pickers', () => {
 
     return {
         ...actual,
-        DatePicker: (() => (props: any): JSX.Element => {
+        DatePicker: (() => (props: any): React.ReactNode => {
             return (
                 <input
                     data-testid="mockedDateField"
@@ -83,25 +82,29 @@ describe('When data retrieval errors out', () => {
 describe('When data retrieval completes successfully', () => {
     it('should display the chartjs chart', async (): Promise<void> => {
         (getEpisodeCountDailyDistribution as jest.Mock).mockResolvedValueOnce(validResult);
-        const { asFragment } = render(<DailyBreakdown />);
-
+        let docFragment: DocumentFragment = (null as any) as DocumentFragment;
         await act(async () => {
-            await Promise.resolve();
+            const { asFragment } = render(<DailyBreakdown />);
+            docFragment = asFragment();
         });
-        expect(asFragment()).toMatchSnapshot();
+        expect(docFragment).toMatchSnapshot();
     });
 });
 
 describe('When selected dates are changed', () => {
-    it.only('should re-query the web service', async (): Promise<void> => {
+    it('should re-query the web service', async (): Promise<void> => {
         (getEpisodeCountDailyDistribution as jest.Mock).mockResolvedValueOnce(validResult);
 
         await act(async () => {
-            const { asFragment, getAllByTestId } = render(<DailyBreakdown />);
-            const mockedDateField = getAllByTestId('mockedDateField');
-            fireEvent.change(mockedDateField[0], { target: { value: moment().format() } });
+            const { getAllByTestId } = render(<DailyBreakdown />);
+            await Promise.resolve();
+            const [startDate, endDate] = getAllByTestId('mockedDateField');
+            fireEvent.change(startDate, { target: { value: moment().subtract(2, 'weeks').format() } });
+            await Promise.resolve();
+            fireEvent.change(endDate, { target: { value: moment().subtract(1, 'weeks').format() } });
+            await Promise.resolve();
         });
 
-        expect(getEpisodeCountDailyDistribution).toHaveBeenCalledTimes(2);
+        expect(getEpisodeCountDailyDistribution).toHaveBeenCalledTimes(3);
     });
 });
