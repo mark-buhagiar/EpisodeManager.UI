@@ -134,7 +134,7 @@ exports[`When the accordion header is clicked should display a loading indicator
 </DocumentFragment>
 `;
 
-exports[`When the accordion header is clicked should display the retrieved details 1`] = `
+exports[`When the accordion header is clicked should display the retrieved details and the force sync button 1`] = `
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiExpansionPanel-root Mui-expanded MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"

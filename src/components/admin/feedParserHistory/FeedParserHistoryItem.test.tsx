@@ -1,21 +1,15 @@
-import {
-    screen,
-    act,
-    cleanup,
-    fireEvent,
-    render,
-    findByTestId,
-    getByText,
-    getAllByTestId,
-    wait,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, wait } from '@testing-library/react';
 import moment from 'moment';
 import React from 'react';
-import { getParseHistoryDetails } from '../../../api/feedParserApi';
-import FeedParserHistoryItem from './FeedParserHistoryItem';
+import { getParseHistoryDetails, forceSyncParseHistory } from '../../../api/feedParserApi';
 import { toDateAndTimeFormat } from '../../../helpers/dateHelpers';
+import FeedParserHistoryItem from './FeedParserHistoryItem';
+import { act } from 'react-dom/test-utils';
 
-jest.mock('../../../api/feedParserApi', () => ({ getParseHistoryDetails: jest.fn() }));
+jest.mock('../../../api/feedParserApi', () => ({
+    getParseHistoryDetails: jest.fn(),
+    forceSyncParseHistory: jest.fn(),
+}));
 
 const parseHistoryItem = {
     id: 28,
@@ -45,6 +39,7 @@ const parseHistoryDetails = {
 
 afterEach(async () => {
     await cleanup();
+    jest.useRealTimers();
     jest.clearAllMocks();
 });
 
@@ -60,6 +55,11 @@ describe('When the component is rendered', () => {
     });
 });
 
+async function expandAccordion(getByRoleScope: any): Promise<void> {
+    fireEvent.click(getByRoleScope('button'));
+    await wait();
+}
+
 describe('When the accordion header is clicked', () => {
     it('should display a loading indicator while additional details are being retrieved', async (): Promise<void> => {
         const { asFragment, getByRole } = render(<FeedParserHistoryItem parseHistoryItem={parseHistoryItem} />);
@@ -71,20 +71,36 @@ describe('When the accordion header is clicked', () => {
         await wait();
     });
 
-    it('should display the retrieved details', async (): Promise<void> => {
-        const { asFragment, getByRole, queryByRole, getAllByTestId } = render(
+    it('should display the retrieved details and the force sync button', async (): Promise<void> => {
+        const { asFragment, getByRole, queryByRole, getAllByTestId, getByText } = render(
             <FeedParserHistoryItem parseHistoryItem={parseHistoryItem} />,
         );
         (getParseHistoryDetails as jest.Mock).mockResolvedValue({ ...parseHistoryDetails });
 
-        fireEvent.click(getByRole('button'));
-        await wait();
+        await expandAccordion(getByRole);
 
         const sortedEpisodeTitles = [...parseHistoryDetails.episodeTitles];
         sortedEpisodeTitles.sort((a, b) => (a > b ? 1 : -1));
         const episodesOnPage = getAllByTestId('episode-title');
         sortedEpisodeTitles.forEach((title, index) => expect(episodesOnPage[index].textContent).toEqual(title));
+        expect(getByText('Force Re-sync')).toBeTruthy();
         expect(queryByRole('progressbar')).toBeNull();
         expect(asFragment()).toMatchSnapshot();
+    });
+});
+
+describe('When the Force Re-sync button is clicked', () => {
+    it('should make a request to the web-service', async () => {
+        jest.useFakeTimers();
+        const { getByRole, getByText } = render(<FeedParserHistoryItem parseHistoryItem={parseHistoryItem} />);
+        (getParseHistoryDetails as jest.Mock).mockResolvedValue({ ...parseHistoryDetails });
+        (forceSyncParseHistory as jest.Mock).mockImplementation((parseId: number) => Promise.resolve(parseId));
+        await expandAccordion(getByRole);
+
+        fireEvent.click(getByText('Force Re-sync'));
+        expect(getByText('Force Re-sync').getAttribute('class')?.includes('disabled')).toBeTruthy();
+        expect(forceSyncParseHistory).toHaveBeenCalledWith(parseHistoryDetails.id);
+        await wait();
+        expect(getByText('Force Re-sync').getAttribute('class')?.includes('disabled')).toBeFalsy();
     });
 });

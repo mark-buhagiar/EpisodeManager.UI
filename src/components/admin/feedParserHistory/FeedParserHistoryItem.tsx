@@ -22,14 +22,11 @@ interface Props {
 const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: Props): JSX.Element => {
     const [details, setDetails] = useState<ParseHistoryDetails | null>(null);
     const [forceResyncEnabled, setForceResyncEnabled] = useState<boolean>(false);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function handleForceResyncClicked(): Promise<void> {
         if (details === null) return;
         setForceResyncEnabled(false);
-        setIsLoading(true);
         await feedParserApi.forceSyncParseHistory(details.id);
-        setIsLoading(false);
         setForceResyncEnabled(true);
     }
 
@@ -49,7 +46,7 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
         setForceResyncEnabled(true);
     }
 
-    const expansionPanelBody = (
+    return (
         <ExpansionPanel
             data-testid={`feed-parser-history-item-${summary.id}`}
             TransitionProps={{ unmountOnExit: true }}
@@ -89,8 +86,6 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
             </ExpansionPanelActions>
         </ExpansionPanel>
     );
-
-    return <>{isLoading ? <ComponentLoading /> : expansionPanelBody}</>;
 };
 
 export default FeedParserHistoryItem;
