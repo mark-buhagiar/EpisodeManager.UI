@@ -37,7 +37,7 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
         {
             label: 'Force Re-sync',
             onClick: handleForceResyncClicked,
-            enabled: forceResyncEnabled && (details?.episodeTitles.length ?? 1 > 0),
+            enabled: forceResyncEnabled && (details?.episodeTitles?.length ?? 1 > 0),
         },
     ] as ButtonProps[];
 
@@ -72,10 +72,12 @@ const FeedParserHistoryItem: React.FC<Props> = ({ parseHistoryItem: summary }: P
                         <ComponentLoading />
                     ) : (
                         <ul>
-                            {details.episodeTitles
-                                .sort((a, b) => (a > b ? 1 : -1))
+                            {details?.episodeTitles
+                                ?.sort((a, b) => (a > b ? 1 : -1))
                                 .map((title) => (
-                                    <li key={title}>{title}</li>
+                                    <li data-testid="episode-title" key={title}>
+                                        {title}
+                                    </li>
                                 ))}
                         </ul>
                     )}

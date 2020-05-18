@@ -23,10 +23,6 @@ jest.mock('@material-ui/pickers', () => {
     };
 });
 
-jest.mock('react-chartjs-2', () => ({
-    Bar: (): string => 'Fake Chart',
-}));
-
 jest.mock('../../../api/feedParserApi', () => ({ getParseHistoryBetweenDates: jest.fn() }));
 
 const validResult = [

@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When the accordion header is clicked should display a loading indicator while additional details are being retrieved 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiExpansionPanel-root Mui-expanded MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="feed-parser-history-item-28"
+  >
+    <div
+      aria-disabled="false"
+      aria-expanded="true"
+      class="MuiButtonBase-root MuiExpansionPanelSummary-root Mui-expanded"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="MuiExpansionPanelSummary-content Mui-expanded"
+      >
+        <div
+          class="parse-history-summary"
+        >
+          <div
+            class="date"
+            title="Last synced on"
+          >
+            13 April 2020 15:28
+          </div>
+          <div
+            class="episode-count"
+            title="Episode count"
+          >
+            100
+          </div>
+          <div
+            class="status"
+          >
+            Success
+          </div>
+        </div>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-hidden="true"
+        class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <span
+            class="material-icons"
+          >
+            expand_more
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </div>
+    <div
+      class="MuiCollapse-container"
+      style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          <div
+            role="region"
+          >
+            <div
+              class="MuiExpansionPanelDetails-root"
+            >
+              <div
+                class="parse-history-details"
+              >
+                <div
+                  class="component-loading-container"
+                >
+                  <span
+                    class="component-loading"
+                  >
+                    <div
+                      class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+                      role="progressbar"
+                      style="width: 40px; height: 40px;"
+                    >
+                      <svg
+                        class="MuiCircularProgress-svg"
+                        viewBox="22 22 44 44"
+                      >
+                        <circle
+                          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                          cx="44"
+                          cy="44"
+                          fill="none"
+                          r="20.2"
+                          stroke-width="3.6"
+                        />
+                      </svg>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr
+              class="MuiDivider-root"
+            />
+            <div
+              class="MuiExpansionPanelActions-root MuiExpansionPanelActions-spacing"
+            >
+              <div
+                class="button-group "
+              >
+                <button
+                  class="button no-select disabled"
+                  title="Disabled"
+                  type="button"
+                >
+                  <div
+                    class="disabled-overlay"
+                  />
+                  Force Re-sync
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When the accordion header is clicked should display the retrieved details 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiExpansionPanel-root Mui-expanded MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="feed-parser-history-item-28"
+  >
+    <div
+      aria-disabled="false"
+      aria-expanded="true"
+      class="MuiButtonBase-root MuiExpansionPanelSummary-root Mui-expanded"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="MuiExpansionPanelSummary-content Mui-expanded"
+      >
+        <div
+          class="parse-history-summary"
+        >
+          <div
+            class="date"
+            title="Last synced on"
+          >
+            13 April 2020 15:28
+          </div>
+          <div
+            class="episode-count"
+            title="Episode count"
+          >
+            100
+          </div>
+          <div
+            class="status"
+          >
+            Success
+          </div>
+        </div>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-hidden="true"
+        class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <span
+            class="material-icons"
+          >
+            expand_more
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </div>
+    <div
+      class="MuiCollapse-container MuiCollapse-entered"
+      style="min-height: 0px; height: auto; transition-duration: 0ms;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          <div
+            role="region"
+          >
+            <div
+              class="MuiExpansionPanelDetails-root"
+            >
+              <div
+                class="parse-history-details"
+              >
+                <ul>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    American Idol 18x14 On with the Show: Homeward Bound
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    American Idol 18x14 On with the Show: Homeward Bound 720p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    Bar Rescue 7x10 Raging Turkey 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    Bar Rescue 7x10 Raging Turkey 720p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    Good Girls 3x11 Synergy 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    Good Witch 6x01 The Anniversary 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    MasterChef (AU) 12x12 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    MasterChef (AU) 12x13 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    MasterChef (AU) 12x14 Immunity Challenge: Time Auction 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    MasterChef (AU) 12x15 Elimination Challenge: Texture 1080p
+                  </li>
+                  <li
+                    data-testid="episode-title"
+                  >
+                    The Rookie 2x19 The Q Word 1080p
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr
+              class="MuiDivider-root"
+            />
+            <div
+              class="MuiExpansionPanelActions-root MuiExpansionPanelActions-spacing"
+            >
+              <div
+                class="button-group "
+              >
+                <button
+                  class="button no-select "
+                  title=""
+                  type="button"
+                >
+                  Force Re-sync
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When the component is rendered should display a summary as the accordion header 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiExpansionPanel-root MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="feed-parser-history-item-28"
+  >
+    <div
+      aria-disabled="false"
+      aria-expanded="false"
+      class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="MuiExpansionPanelSummary-content"
+      >
+        <div
+          class="parse-history-summary"
+        >
+          <div
+            class="date"
+            title="Last synced on"
+          >
+            13 April 2020 15:28
+          </div>
+          <div
+            class="episode-count"
+            title="Episode count"
+          >
+            100
+          </div>
+          <div
+            class="status"
+          >
+            Success
+          </div>
+        </div>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-hidden="true"
+        class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <span
+            class="material-icons"
+          >
+            expand_more
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
