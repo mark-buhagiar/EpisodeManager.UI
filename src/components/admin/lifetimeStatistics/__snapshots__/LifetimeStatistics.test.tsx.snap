@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When the component is rendered should display a loading indicator while data is being retrieved 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Lifetime Statistics
+      <div
+        class="panel-actions"
+      />
+      <div
+        class="separator"
+      />
+    </div>
+    <div
+      class="component-loading-container"
+    >
+      <span
+        class="component-loading"
+      >
+        <div
+          class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`When the component is rendered should display a metadata once data is retrieved 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Lifetime Statistics
+      <div
+        class="panel-actions"
+      />
+      <div
+        class="separator"
+      />
+    </div>
+    <div>
+      # of users: 12
+    </div>
+    <div>
+      # of shows: 11
+    </div>
+    <div>
+      # of episodes (Standard definition): 31
+    </div>
+    <div>
+      # of episodes (720p): 31
+    </div>
+    <div>
+      # of episodes (1080p): 27
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,10 +1,9 @@
 import { cleanup, fireEvent, render, wait } from '@testing-library/react';
 import moment from 'moment';
 import React from 'react';
-import { getParseHistoryDetails, forceSyncParseHistory } from '../../../api/feedParserApi';
+import { forceSyncParseHistory, getParseHistoryDetails } from '../../../api/feedParserApi';
 import { toDateAndTimeFormat } from '../../../helpers/dateHelpers';
 import FeedParserHistoryItem from './FeedParserHistoryItem';
-import { act } from 'react-dom/test-utils';
 
 jest.mock('../../../api/feedParserApi', () => ({
     getParseHistoryDetails: jest.fn(),
