@@ -1,8 +1,7 @@
-import { cleanup, render, wait, getByTestId } from '@testing-library/react';
-
+import { cleanup, render } from '@testing-library/react';
+import moment, { Moment } from 'moment';
 import React from 'react';
 import Calendar from './';
-import moment, { Moment } from 'moment';
 
 afterEach(async () => {
     await cleanup();
