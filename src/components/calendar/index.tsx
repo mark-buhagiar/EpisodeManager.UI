@@ -26,7 +26,7 @@ const Calendar: React.FC<Props> = (props: Props): JSX.Element => {
         calendarStart.subtract(calendarStart.day() === 0 ? 6 : calendarStart.day() - 1, 'day');
 
         const calendarEnd = moment(anchorDate).endOf('month');
-        calendarEnd.add(7 - calendarEnd.day(), 'day');
+        if (calendarEnd.day() !== 0) calendarEnd.add(7 - calendarEnd.day(), 'day');
 
         setDates(getDatesInRange(calendarStart, calendarEnd));
         setCalendarStart(calendarStart.toDate());
@@ -38,11 +38,7 @@ const Calendar: React.FC<Props> = (props: Props): JSX.Element => {
         async function getEpisodes(): Promise<void> {
             try {
                 // These can be cast safely because we are check to make sure they were populated above.
-                const episodes = await showsApi.getForCurrentUserBetweenDates(
-                    calendarStart as Date,
-                    calendarEnd as Date,
-                );
-                setEpisodes(episodes);
+                setEpisodes(await showsApi.getForCurrentUserBetweenDates(calendarStart as Date, calendarEnd as Date));
             } catch (error) {
                 setEpisodes([]);
             }

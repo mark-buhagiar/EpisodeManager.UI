@@ -5,7 +5,11 @@ interface Props {
 }
 
 const CalendarHeaderItem: React.FC<Props> = (props: Props): JSX.Element => {
-    return <div className="calendar-header-item">{props.label}</div>;
+    return (
+        <div data-testid={`calendar-header-item-${props.label}`} className="calendar-header-item">
+            {props.label}
+        </div>
+    );
 };
 
 export default CalendarHeaderItem;

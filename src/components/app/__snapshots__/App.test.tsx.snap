@@ -171,36 +171,43 @@ exports[`When accessing the site should render the home page if authentication i
         >
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Mon"
           >
             Mon
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Tue"
           >
             Tue
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Wed"
           >
             Wed
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Thu"
           >
             Thu
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Fri"
           >
             Fri
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Sat"
           >
             Sat
           </div>
           <div
             className="calendar-header-item"
+            data-testid="calendar-header-item-Sun"
           >
             Sun
           </div>
