@@ -33,7 +33,13 @@ const QualityIndicator: React.FC<Props> = ({ qualityId }): JSX.Element => {
         }
     };
 
-    return <div title={getQualityDescription()} className={`quality-indicator ${getQualityIndicator()}`}></div>;
+    return (
+        <div
+            data-testid="episode-quality-indicator"
+            title={getQualityDescription()}
+            className={`quality-indicator ${getQualityIndicator()}`}
+        ></div>
+    );
 };
 
 export default QualityIndicator;

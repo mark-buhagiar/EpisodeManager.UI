@@ -88,6 +88,7 @@ exports[`When accessing the site should render the home page if authentication i
           <div>
             <div
               className="quality-indicator standard-def"
+              data-testid="episode-quality-indicator"
               title="Standard definition"
             />
              
@@ -96,6 +97,7 @@ exports[`When accessing the site should render the home page if authentication i
           <div>
             <div
               className="quality-indicator p720"
+              data-testid="episode-quality-indicator"
               title="720p"
             />
              
@@ -104,6 +106,7 @@ exports[`When accessing the site should render the home page if authentication i
           <div>
             <div
               className="quality-indicator p1080"
+              data-testid="episode-quality-indicator"
               title="1080p"
             />
              

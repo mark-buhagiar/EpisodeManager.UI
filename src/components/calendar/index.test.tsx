@@ -1,9 +1,8 @@
 import { cleanup, render, wait } from '@testing-library/react';
 import moment, { Moment } from 'moment';
 import React from 'react';
-import Calendar from './';
 import { getForCurrentUserBetweenDates } from '../../api/showsApi';
-import { resolve } from 'dns';
+import Calendar from './';
 
 jest.mock('../../helpers/reactAuth0Spa', () => {
     return {

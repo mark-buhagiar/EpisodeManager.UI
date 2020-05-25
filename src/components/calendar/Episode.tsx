@@ -58,7 +58,7 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
 
     const getRepackIcon = (): JSX.Element =>
         episode.repack ? (
-            <span title="Repack" className="material-icons">
+            <span title="Repack" className="material-icons" data-testid={`episode-replay-marker-${episode.id}`}>
                 replay
             </span>
         ) : (
@@ -66,15 +66,30 @@ const CalendarEpisode: React.FC<Episode> = (episode: Episode): JSX.Element => {
         );
 
     return (
-        <div className={`episode ${isDownloaded ? 'downloaded' : ''}`}>
-            <input className="checkbox" type="checkbox" onChange={toggleEpisodeSelected} checked={isSelected} />
+        <div data-testid={`episode-wrapper-${episode.id}`} className={`episode ${isDownloaded ? 'downloaded' : ''}`}>
+            <input
+                data-testid={`episode-checkbox-${episode.id}`}
+                className="checkbox"
+                type="checkbox"
+                onChange={toggleEpisodeSelected}
+                checked={isSelected}
+            />
 
             <div className="details">
-                <span title={episode.show} className="show-name" onClick={downloadEpisode}>
+                <span
+                    data-testid={`episode-show-title-${episode.id}`}
+                    title={episode.title}
+                    className="show-name"
+                    onClick={downloadEpisode}
+                >
                     {episode.show}
                 </span>
                 <span className="file-details">
-                    <span title={episode.title} className="air-details">
+                    <span
+                        title={episode.title}
+                        className="air-details"
+                        data-testid={`episode-air-details-${episode.id}`}
+                    >
                         {airDetails()}
                     </span>
                     <QualityIndicator qualityId={episode.quality} />
