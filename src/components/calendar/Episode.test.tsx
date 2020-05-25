@@ -111,7 +111,7 @@ describe('When the component is rendered', () => {
         ${p720Episode}
         ${p1080Episode}
     `('should display episode details', ({ episode }: { episode: Episode }) => {
-        const { getByText, getByTestId, queryByTestId, queryByText, debug } = render(<CalendarEpisode {...episode} />);
+        const { getByTestId, queryByTestId } = render(<CalendarEpisode {...episode} />);
 
         expect(getByTestId('episode-show-title', { exact: false }).textContent).toEqual(episode.show);
 
@@ -140,7 +140,7 @@ describe('When the episode is clicked', () => {
     it('should trigger a download', () => {
         const mockOpen = jest.fn();
         (global as any).open = mockOpen;
-        const { getByTestId, debug } = render(<CalendarEpisode {...baseEpisode} />);
+        const { getByTestId } = render(<CalendarEpisode {...baseEpisode} />);
         fireEvent.click(getByTestId('episode-show-title', { exact: false }));
 
         expect(mockOpen).toBeCalledWith('http://example.com', '_blank');
@@ -151,7 +151,7 @@ describe('When the episode is clicked', () => {
 
 describe('When the user interacts with the checkbox', () => {
     it('should send a select action to the reducer when the checkbox is switched on', () => {
-        const { getByTestId, debug } = render(<CalendarEpisode {...baseEpisode} />);
+        const { getByTestId } = render(<CalendarEpisode {...baseEpisode} />);
         const selectionCheckbox = getByTestId(`episode-checkbox-${baseEpisode.id}`);
         fireEvent.click(selectionCheckbox);
         expect(mockUseEpisodesSelectedDispatcher).toHaveBeenCalledTimes(1);
@@ -161,7 +161,7 @@ describe('When the user interacts with the checkbox', () => {
     });
 
     it('should send a deselect action to the reducer when the checkbox is switched off', () => {
-        const { getByTestId, debug } = render(<CalendarEpisode {...baseEpisode} />);
+        const { getByTestId } = render(<CalendarEpisode {...baseEpisode} />);
         const selectionCheckbox = getByTestId(`episode-checkbox-${baseEpisode.id}`);
         fireEvent.click(selectionCheckbox);
         fireEvent.click(selectionCheckbox);
