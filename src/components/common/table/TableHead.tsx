@@ -60,7 +60,7 @@ const TableHead = <T extends object>({ columns, sort, onSortChanged }: Props<T>)
         <MaterialTableHead>
             <TableRow>
                 {columns.map((column) => (
-                    <TableCell key={column.id}>
+                    <TableCell data-testid={`table-head-${column.id}`} key={column.id}>
                         <div
                             className={`table-cell ${column.sortComparator !== undefined ? 'clickable' : ''}`}
                             onClick={(): void => onTableHeaderClicked(column)}

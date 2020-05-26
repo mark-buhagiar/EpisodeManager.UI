@@ -14,7 +14,9 @@ const TableBody = <T extends IndexableObject>({ data, columns }: Props<T>): JSX.
             {data.map((datum) => (
                 <TableRow key={datum.key}>
                     {columns.map((column) => (
-                        <TableCell key={column.id}>{column.field(datum)}</TableCell>
+                        <TableCell data-testid={`table-cell-${datum.key}-${column.id}`} key={column.id}>
+                            {column.field(datum)}
+                        </TableCell>
                     ))}
                 </TableRow>
             ))}

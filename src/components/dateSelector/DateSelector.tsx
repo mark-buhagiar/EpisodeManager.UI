@@ -21,8 +21,9 @@ const DateSelector: React.FC<Props> = ({ date, updateDateDispatch }): JSX.Elemen
                 id="navigate_before"
                 onClick={(): void => changeMonth(MonthReducerActionTypes.DECREMENT_MONTH)}
             />
-            <div className="month-label">
-                {month} <br /> <div className="year">{year}</div>
+            <div data-testid="month-label" className="month-label">
+                {month} <br />
+                <div className="year">{year}</div>
             </div>
 
             <DateChanger

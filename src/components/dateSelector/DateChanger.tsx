@@ -13,7 +13,9 @@ const DateChanger: React.FC<Props> = (props: Props): JSX.Element => {
             className={['date-changer no-select', !props.className ? '' : [...props.className]].join(' ')}
             onClick={(): void => props.onClick()}
         >
-            <span className="material-icons">{props.id}</span>
+            <span data-testid={props.id} className="material-icons">
+                {props.id}
+            </span>
         </div>
     );
 };

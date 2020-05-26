@@ -39,5 +39,7 @@ export default class Column<T> {
 
         // We cannot be allowed to sort on a column which has a render
         if (typeof field !== 'function') this._sortComparator = sortComparator;
+        else if (typeof field !== 'function' && sortComparator !== undefined)
+            throw new Error('Unable to sort on rendered column');
     }
 }

@@ -21,6 +21,8 @@ exports[`When clicking the fetch new episodes button should render 1`] = `
     >
       <button
         class="button no-select "
+        data-testid="button-Fetch New Episodes"
+        role="button"
         title=""
         type="button"
       >

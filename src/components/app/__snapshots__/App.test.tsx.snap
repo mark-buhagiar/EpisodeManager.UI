@@ -123,17 +123,18 @@ exports[`When accessing the site should render the home page if authentication i
           >
             <span
               className="material-icons"
+              data-testid="navigate_before"
             >
               navigate_before
             </span>
           </div>
           <div
             className="month-label"
+            data-testid="month-label"
           >
             May
              
             <br />
-             
             <div
               className="year"
             >
@@ -147,6 +148,7 @@ exports[`When accessing the site should render the home page if authentication i
           >
             <span
               className="material-icons"
+              data-testid="navigate_next"
             >
               navigate_next
             </span>
@@ -157,7 +159,9 @@ exports[`When accessing the site should render the home page if authentication i
         >
           <button
             className="button no-select "
+            data-testid="button-Refresh"
             onClick={[Function]}
+            role="button"
             title=""
             type="button"
           >
@@ -296,7 +300,9 @@ exports[`When accessing the site should render the landing page if authenticatio
       >
         <button
           className="button no-select "
+          data-testid="button-Log In / Sign Up"
           onClick={[Function]}
+          role="button"
           title=""
           type="button"
         >

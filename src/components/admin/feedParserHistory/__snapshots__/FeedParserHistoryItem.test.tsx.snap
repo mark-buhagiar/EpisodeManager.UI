@@ -116,6 +116,8 @@ exports[`When the accordion header is clicked should display a loading indicator
               >
                 <button
                   class="button no-select disabled"
+                  data-testid="button-Force Re-sync"
+                  role="disabled-button"
                   title="Disabled"
                   type="button"
                 >
@@ -280,6 +282,8 @@ exports[`When the accordion header is clicked should display the retrieved detai
               >
                 <button
                   class="button no-select "
+                  data-testid="button-Force Re-sync"
+                  role="button"
                   title=""
                   type="button"
                 >
