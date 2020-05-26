@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When the component is rendered should render the panel with all of its parts 1`] = `
+<DocumentFragment>
+  <div
+    class="panel"
+  >
+    <div
+      class="panel-title"
+    >
+      Panel Title
+      <div
+        class="panel-actions"
+      >
+        <div>
+          Panel Actions
+        </div>
+      </div>
+      <div
+        class="separator"
+      />
+    </div>
+    <div>
+      Panel Content
+    </div>
+  </div>
+</DocumentFragment>
+`;
