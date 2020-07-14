@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "build": "react-scripts build",
+        "build": "GENERATE_SOURCEMAP=false react-scripts build",
         "eject": "react-scripts eject",
         "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "start": "run-p start:dev start:api",
