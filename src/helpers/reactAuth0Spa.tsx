@@ -2,6 +2,7 @@ import createAuth0Client, { Auth0Client, IdToken } from '@auth0/auth0-spa-js';
 import React, { useContext, useEffect, useState } from 'react';
 import AuthConfig from '../config/authConfig';
 import EnvironmentConfig from '../config/environmentConfig';
+import { removeItemWithRegexKey } from '../helpers/localStorageHelpers';
 
 // Modified by Mark
 const DEFAULT_REDIRECT_CALLBACK = (): void => window.history.replaceState({}, document.title, window.location.pathname);
@@ -57,6 +58,8 @@ export const Auth0Provider = ({
                 }
             } catch (exception) {
                 console.log(exception);
+                removeItemWithRegexKey('@@auth0spajs@@');
+                window.location.reload();
             } finally {
                 setLoading(false);
             }
