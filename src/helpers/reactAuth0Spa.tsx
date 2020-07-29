@@ -58,7 +58,14 @@ export const Auth0Provider = ({
                 }
             } catch (exception) {
                 console.log(exception);
-                removeItemWithRegexKey('@@auth0spajs@@');
+
+                const auth0Client = await createAuth0Client({
+                    ...initOptions,
+                    useRefreshTokens: false,
+                });
+
+                auth0Client.logout(); // important
+
                 window.location.reload();
             } finally {
                 setLoading(false);
