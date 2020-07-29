@@ -40,7 +40,7 @@ const ShowFilters: React.FC<Props> = ({ onShowSelected, className = '' }): JSX.E
             value={selectedShow}
             className={className}
             onChange={(event: any, value: Show | null): void => handleShowSelected(value as Show)}
-            getOptionLabel={(option): string => option.title}
+            getOptionLabel={(option: Show): string => option.title}
             renderInput={(params): JSX.Element => <TextField {...params} label="Show" variant="outlined" />}
         />
     );

@@ -20,9 +20,6 @@ const LandingPage: React.FC = (): JSX.Element => {
                 <span className="version-number">v2.0</span>
             </div>
             <ButtonGroup className="button-group" buttons={buttons} />
-            <div className="sub-text">
-                Please contact me if you previously had an account and would like your data to be migrated
-            </div>
         </div>
     );
 
